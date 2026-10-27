@@ -1,0 +1,2189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ivindo Studio — Sites web, apps & plateformes sur mesure | Gabon & Afrique</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20128%20128'><rect%20width='128'%20height='128'%20rx='26'%20fill='#141C42'/><rect%20x='24'%20y='28'%20width='14'%20height='74'%20rx='7'%20fill='#F0B429'/><rect%20x='48'%20y='28'%20width='14'%20height='52'%20rx='7'%20fill='#F0B429'/><rect%20x='72'%20y='28'%20width='14'%20height='84'%20rx='7'%20fill='#F0B429'/><rect%20x='96'%20y='28'%20width='14'%20height='40'%20rx='7'%20fill='#F0B429'/><circle%20cx='55'%20cy='94'%20r='5'%20fill='#F0B429'/><circle%20cx='103'%20cy='82'%20r='5'%20fill='#F0B429'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F6F8;
+  --indigo:#212E63;
+  --indigo-deep:#141C42;
+  --maize:#F0B429;
+  --ink:#171A26;
+  --muted:#5A6172;
+  --line:#D9DEE8;
+  --white:#FFFFFF;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{font-family:'Instrument Sans',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;font-size:16px}
+h1,h2,h3,.display{font-family:'Bricolage Grotesque','Instrument Sans',sans-serif}
+a{color:inherit}
+img{max-width:100%}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--indigo)}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--maize)}
+:focus-visible{outline:3px solid var(--maize);outline-offset:3px}
+
+/* ---------- Nav ---------- */
+nav{position:sticky;top:0;z-index:50;background:rgba(244,246,248,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:20px;letter-spacing:-.02em;text-decoration:none}
+.logo span{color:var(--indigo)}
+.logo em{font-style:normal;color:var(--maize)}
+.nav-links{display:flex;gap:28px;list-style:none;font-size:14px;font-weight:500}
+.nav-links a{text-decoration:none;color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--indigo)}
+.nav-cta{background:var(--indigo);color:#fff;padding:10px 20px;border-radius:100px;text-decoration:none;font-size:14px;font-weight:600;transition:background .2s}
+.nav-cta:hover{background:var(--indigo-deep)}
+@media(max-width:820px){.nav-links{display:none}}
+
+/* ---------- Hero (signature: trame tissée) ---------- */
+header{background:var(--indigo-deep);color:#fff;position:relative;overflow:hidden}
+.weave{position:absolute;inset:0;opacity:.14;pointer-events:none;
+  background:
+    repeating-linear-gradient(90deg,transparent 0 46px,rgba(240,180,41,.55) 46px 48px,transparent 48px 94px),
+    repeating-linear-gradient(0deg,transparent 0 46px,rgba(255,255,255,.35) 46px 48px,transparent 48px 94px);
+}
+.hero{position:relative;padding:110px 0 90px;display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(38px,5.4vw,66px);font-weight:750;line-height:1.04;letter-spacing:-.025em}
+.hero h1 .mz{color:var(--maize)}
+.hero p.lead{margin-top:22px;font-size:18px;color:#C7CDE2;max-width:52ch}
+.hero-ctas{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 26px;border-radius:100px;font-weight:600;font-size:15px;text-decoration:none;transition:transform .15s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-maize{background:var(--maize);color:var(--indigo-deep)}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.4);color:#fff}
+.hero-stats{display:grid;gap:16px}
+.stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:20px 22px}
+.stat b{display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:30px;font-weight:750;color:var(--maize);letter-spacing:-.02em}
+.stat small{color:#B9C0DA;font-size:13.5px;line-height:1.45;display:block;margin-top:4px}
+@media(max-width:900px){.hero{grid-template-columns:1fr;padding:80px 0 64px}}
+
+/* ---------- Sections ---------- */
+section{padding:88px 0}
+.sec-head{max-width:640px;margin-bottom:48px}
+.sec-head h2{font-size:clamp(28px,3.6vw,42px);font-weight:720;letter-spacing:-.02em;line-height:1.12;margin-top:14px}
+.sec-head p{margin-top:14px;color:var(--muted)}
+
+/* Arguments */
+.args{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.arg{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:28px 26px}
+.arg .tag{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:100px;font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;color:var(--indigo)}
+.arg h3{margin-top:16px;font-size:19px;font-weight:700;letter-spacing:-.01em}
+.arg p{margin-top:10px;font-size:14.5px;color:var(--muted)}
+@media(max-width:900px){.args{grid-template-columns:1fr}}
+
+/* ---------- Offres ---------- */
+#offres{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+.plan{border:1px solid var(--line);border-radius:20px;padding:30px 28px;display:flex;flex-direction:column;background:var(--paper)}
+.plan.featured{background:var(--indigo-deep);color:#fff;border-color:var(--indigo-deep);position:relative}
+.plan.featured .pill{background:var(--maize);color:var(--indigo-deep)}
+.pill{align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--indigo);color:#fff;border-radius:100px;padding:5px 13px}
+.plan h3{margin-top:18px;font-size:22px;font-weight:720;letter-spacing:-.01em}
+.price{margin-top:14px;font-family:'Bricolage Grotesque',sans-serif}
+.price b{font-size:32px;font-weight:750;letter-spacing:-.02em}
+.price small{display:block;font-size:13px;font-weight:400;opacity:.72;margin-top:2px}
+.plan ul{list-style:none;margin-top:22px;display:grid;gap:11px;font-size:14.5px;flex:1}
+.plan li{padding-left:24px;position:relative}
+.plan li::before{content:"";position:absolute;left:0;top:7px;width:12px;height:12px;border-radius:3px;background:var(--maize)}
+.plan.featured li{color:#D7DCEF}
+.plan .cible{margin-top:20px;font-size:12.5px;opacity:.7;border-top:1px dashed currentColor;padding-top:14px}
+.plan .btn{margin-top:20px;justify-content:center}
+.plan:not(.featured) .btn{background:var(--indigo);color:#fff}
+.plan.featured .btn{background:var(--maize);color:var(--indigo-deep)}
+.maint{margin-top:26px;text-align:center;font-size:14px;color:var(--muted)}
+.maint b{color:var(--ink)}
+@media(max-width:940px){.plans{grid-template-columns:1fr}}
+
+/* ---------- Portfolio ---------- */
+.works{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.work{border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--white);text-decoration:none;display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
+.work:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(20,28,66,.12)}
+.work .visual{height:190px;position:relative;display:flex;align-items:flex-end;padding:18px}
+.work .visual .fake-logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:21px;color:#fff;letter-spacing:.01em}
+.v-btp{background:linear-gradient(135deg,#1C1B19 0%,#3A3835 55%,#F5B301 140%)}
+.v-btp::after{content:"";position:absolute;inset:auto 0 0 0;height:14px;background:repeating-linear-gradient(45deg,#F5B301 0 14px,#1C1B19 14px 28px)}
+.v-immo{background:linear-gradient(150deg,#0F3B4C 0%,#1D5A70 60%,#E7DCC8 145%)}
+.v-hotel{background:linear-gradient(160deg,#16352A 0%,#2C5D4A 55%,#D9A441 150%)}
+.v-agro{background:linear-gradient(150deg,#241710 0%,#4A2F1E 55%,#5B8C42 155%)}
+.v-cabinet{background:linear-gradient(150deg,#23252B 0%,#41161C 60%,#B9975B 165%)}
+.work .body{padding:22px 22px 24px}
+.work .body .sect{font-size:11.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--indigo)}
+.work .body h3{margin-top:8px;font-size:19px;font-weight:720}
+.work .body p{margin-top:8px;font-size:14px;color:var(--muted)}
+.work .body .go{margin-top:16px;font-size:14px;font-weight:600;color:var(--indigo);display:inline-flex;gap:6px;align-items:center}
+.work .body .go::after{content:"→";transition:transform .15s}
+.work:hover .go::after{transform:translateX(4px)}
+@media(max-width:940px){.works{grid-template-columns:1fr}}
+.note-secteurs{margin-top:24px;font-size:14px;color:var(--muted)}
+/* Carte vedette (PNGS) */
+.work-feature{display:grid;grid-template-columns:1.15fr 1fr;gap:0;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:var(--white);text-decoration:none;margin-bottom:22px;transition:transform .18s,box-shadow .18s}
+.work-feature:hover{transform:translateY(-5px);box-shadow:0 22px 50px rgba(20,28,66,.14)}
+.feature-visual{position:relative;min-height:320px;background-size:cover;background-position:left top}
+.feature-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(20,28,66,.18),rgba(20,28,66,0) 55%)}
+.feature-badge{position:absolute;top:16px;left:16px;z-index:2;background:var(--maize);color:var(--indigo);font-size:12px;font-weight:800;letter-spacing:.02em;padding:7px 14px;border-radius:100px;box-shadow:0 6px 18px rgba(20,28,66,.18)}
+.feature-body{padding:34px 34px 36px;display:flex;flex-direction:column;justify-content:center}
+.feature-body .sect{font-size:11.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--indigo)}
+.feature-body h3{margin-top:8px;font-size:25px;font-weight:800;line-height:1.1}
+.feature-body p{margin-top:12px;font-size:14.5px;color:var(--muted);line-height:1.6}
+.feature-body .go{margin-top:18px;font-size:14px;font-weight:600;color:var(--indigo);display:inline-flex;gap:6px;align-items:center}
+.feature-body .go::after{content:"→";transition:transform .15s}
+.work-feature:hover .go::after{transform:translateX(4px)}
+@media(max-width:820px){.work-feature{grid-template-columns:1fr}.feature-visual{min-height:200px}}
+/* Galerie lightbox PNGS */
+.gal-overlay{position:fixed;inset:0;z-index:1000;background:rgba(10,14,30,.94);display:none;flex-direction:column}
+.gal-overlay.open{display:flex}
+.gal-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px;color:#fff;background:rgba(20,28,66,.6);flex-wrap:wrap}
+.gal-caption{font-size:14.5px;font-weight:500;max-width:70%}
+.gal-controls{display:flex;align-items:center;gap:10px}
+.gal-controls button{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:9px;padding:8px 14px;font-size:15px;font-weight:600;cursor:pointer;transition:background .15s}
+.gal-controls button:hover{background:rgba(255,255,255,.22)}
+.gal-count{color:#cfd6ea;font-size:13px;min-width:48px;text-align:center}
+.gal-stage{flex:1;display:flex;align-items:center;justify-content:center;padding:22px;overflow:auto}
+.gal-stage img{max-width:100%;max-height:100%;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5);background:#fff}
+
+/* ---------- Process ---------- */
+#process{background:var(--indigo-deep);color:#fff}
+#process .sec-head p{color:#B9C0DA}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:step}
+.step{border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:24px 22px;counter-increment:step;background:rgba(255,255,255,.04)}
+.step::before{content:counter(step,decimal-leading-zero);font-family:'Bricolage Grotesque',sans-serif;font-size:15px;font-weight:700;color:var(--maize);letter-spacing:.08em}
+.step h3{margin-top:12px;font-size:17px;font-weight:700}
+.step p{margin-top:8px;font-size:13.5px;color:#C3C9E0}
+@media(max-width:940px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}}
+
+/* ---------- Contact ---------- */
+#contact .card{background:var(--white);border:1px solid var(--line);border-radius:24px;padding:52px;display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
+#contact h2{font-size:clamp(26px,3.4vw,38px);font-weight:720;letter-spacing:-.02em;line-height:1.15}
+#contact p{margin-top:14px;color:var(--muted)}
+.contact-list{list-style:none;display:grid;gap:14px}
+.contact-list li{display:flex;gap:14px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 18px;font-size:15px}
+.contact-list .ic{width:38px;height:38px;border-radius:10px;background:var(--indigo);color:#fff;display:grid;place-items:center;font-weight:700;flex-shrink:0;font-size:13px}
+.contact-list li.wa .ic{background:#1FA855}
+@media(max-width:860px){#contact .card{grid-template-columns:1fr;padding:36px 26px}}
+
+footer{padding:34px 0 44px;color:var(--muted);font-size:13.5px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+/* ===================== ANIMATIONS ===================== */
+/* Séquence d'entrée du hero */
+@keyframes heroIn{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.hero .eyebrow,.hero h1,.hero p.lead,.hero-ctas,.hero-stats .stat{animation:heroIn .9s cubic-bezier(.22,.61,.36,1) both}
+.hero h1{animation-delay:.08s}
+.hero p.lead{animation-delay:.18s}
+.hero-ctas{animation-delay:.28s}
+.hero-stats .stat:nth-child(1){animation-delay:.34s}
+.hero-stats .stat:nth-child(2){animation-delay:.46s}
+.hero-stats .stat:nth-child(3){animation-delay:.58s}
+
+/* Trame tissée en dérive continue */
+.weave{animation:weaveDrift 28s linear infinite}
+@keyframes weaveDrift{to{background-position:94px 94px,94px 94px}}
+
+/* Orbes lumineuses flottantes */
+.orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.32;pointer-events:none}
+.orb-a{width:420px;height:420px;background:var(--maize);top:-150px;right:-90px;animation:floatA 14s ease-in-out infinite}
+.orb-b{width:380px;height:380px;background:#4B5BD6;bottom:-170px;left:-110px;animation:floatB 18s ease-in-out infinite}
+@keyframes floatA{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-42px,30px) scale(1.08)}}
+@keyframes floatB{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(48px,-34px) scale(1.06)}}
+
+/* Halo qui suit le curseur dans le hero */
+.hero-glow{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .4s;
+  background:radial-gradient(340px circle at var(--gx,50%) var(--gy,50%),rgba(240,180,41,.16),transparent 60%)}
+header:hover .hero-glow{opacity:1}
+
+/* Texte accent scintillant */
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .hero h1 .mz{background:linear-gradient(90deg,#F0B429 20%,#FFE9A8 40%,#F0B429 60%);background-size:220% 100%;
+    -webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 3.4s linear infinite}
+}
+@keyframes shimmer{to{background-position:-220% 0}}
+
+/* Bandeau défilant */
+.ticker-wrap{overflow:hidden;margin:-24px 0 -10px;position:relative;z-index:3}
+.ticker{background:var(--maize);transform:rotate(-1.3deg) scale(1.02);box-shadow:0 12px 32px rgba(20,28,66,.18)}
+.ticker-track{display:flex;align-items:center;gap:34px;width:max-content;padding:13px 0;
+  animation:tick 26s linear infinite;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:13px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--indigo-deep)}
+.ticker-track i{font-style:normal;opacity:.5;font-size:10px}
+.ticker:hover .ticker-track{animation-play-state:paused}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* Révélation au défilement */
+.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1)}
+.js .reveal.in{opacity:1;transform:none}
+
+/* Soulignement animé de la navigation */
+.nav-links a{position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:100%;background:var(--maize);transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(.22,.61,.36,1)}
+.nav-links a:hover::after{transform:scaleX(1)}
+
+/* Reflet balayant sur les boutons */
+.btn{position:relative;overflow:hidden}
+.btn::after{content:"";position:absolute;top:0;left:-70%;width:44%;height:100%;
+  background:linear-gradient(105deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-20deg);transition:left .55s ease}
+.btn:hover::after{left:135%}
+
+/* Bordure animée de l'offre vedette */
+.plan.featured{border:none;overflow:hidden;animation:ringGlow 4.5s ease-in-out infinite}
+.plan.featured::before{content:"";position:absolute;top:50%;left:50%;width:240%;padding-top:240%;
+  background:conic-gradient(#F0B429,#5A6BFF,#8F5AE8,#F0B429);
+  transform:translate(-50%,-50%) rotate(0deg);animation:spin 7s linear infinite;z-index:0}
+.plan.featured::after{content:"";position:absolute;inset:2.5px;background:var(--indigo-deep);border-radius:18px;z-index:0}
+.plan.featured>*{position:relative;z-index:1}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes ringGlow{0%,100%{box-shadow:0 8px 26px rgba(20,28,66,.18)}50%{box-shadow:0 16px 48px rgba(240,180,41,.28)}}
+
+/* Inclinaison 3D des cartes portfolio */
+.works{perspective:1200px}
+.work{transform-style:preserve-3d;will-change:transform}
+
+/* Cartes stats : respiration au survol */
+.stat{transition:transform .25s,border-color .25s}
+.stat:hover{transform:translateY(-3px);border-color:rgba(240,180,41,.55)}
+
+/* Barre de progression du défilement */
+#progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:90;
+  background:linear-gradient(90deg,var(--maize),#5A6BFF);transform-origin:left;transform:scaleX(0)}
+/* ============================================================
+   ANIMATIONS — chorégraphie Ivindo Studio
+   ============================================================ */
+
+/* Barre de progression de lecture */
+#scroll-progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:120;
+  background:linear-gradient(90deg,var(--maize),#FFD968);
+  box-shadow:0 0 14px rgba(240,180,41,.55)}
+
+/* --- Entrée du hero, en cascade --- */
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.hero{position:relative;z-index:1}
+.hero > div:first-child > *{animation:rise .85s cubic-bezier(.2,.7,.2,1) both}
+.hero > div:first-child > .eyebrow{animation-delay:.05s}
+.hero > div:first-child > h1{animation-delay:.16s}
+.hero > div:first-child > p.lead{animation-delay:.3s}
+.hero > div:first-child > .hero-ctas{animation-delay:.44s}
+
+/* Cartes stats : entrée + flottement continu désynchronisé */
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.hero-stats .stat{animation:rise .85s cubic-bezier(.2,.7,.2,1) both,floaty 6.5s ease-in-out infinite}
+.hero-stats .stat:nth-child(1){animation-delay:.5s,1.4s}
+.hero-stats .stat:nth-child(2){animation-delay:.62s,2.1s}
+.hero-stats .stat:nth-child(3){animation-delay:.74s,2.8s}
+
+/* Trame tissée vivante : dérive lente + fils de lumière */
+.weave{animation:weave-drift 48s linear infinite}
+@keyframes weave-drift{to{background-position:94px 0,0 94px}}
+header::before,header::after{content:"";position:absolute;pointer-events:none;z-index:0;filter:blur(1px)}
+header::before{height:2px;width:36%;top:30%;left:-40%;
+  background:linear-gradient(90deg,transparent,rgba(240,180,41,.85),transparent);
+  animation:thread-x 7.5s cubic-bezier(.45,0,.2,1) infinite 1s}
+header::after{width:2px;height:42%;left:66%;top:-46%;
+  background:linear-gradient(180deg,transparent,rgba(255,255,255,.75),transparent);
+  animation:thread-y 9.5s cubic-bezier(.45,0,.2,1) infinite 3.4s}
+@keyframes thread-x{to{left:140%}}
+@keyframes thread-y{to{top:150%}}
+
+/* Halo qui suit le curseur dans le hero */
+#spot{position:absolute;width:540px;height:540px;border-radius:50%;left:50%;top:38%;
+  transform:translate(-50%,-50%);pointer-events:none;z-index:0;opacity:0;
+  background:radial-gradient(circle,rgba(240,180,41,.16),transparent 62%);
+  filter:blur(4px);transition:opacity .5s}
+header:hover #spot{opacity:1}
+
+/* Mot rotatif du titre */
+.rot{display:inline-block;position:relative;color:var(--maize);min-width:5.4em;text-align:left;vertical-align:bottom}
+.rot .w{display:inline-block;transition:transform .38s cubic-bezier(.6,0,.3,1),opacity .38s}
+.rot .w.out{transform:translateY(-105%);opacity:0}
+.rot .w.pre{transform:translateY(105%);opacity:0;transition:none}
+.rot::after{content:"";position:absolute;left:0;bottom:.02em;height:3px;width:100%;
+  background:var(--maize);border-radius:2px;transform-origin:left;
+  animation:underline-pulse 2.7s ease-in-out infinite}
+@keyframes underline-pulse{0%,100%{transform:scaleX(.25);opacity:.5}50%{transform:scaleX(1);opacity:1}}
+
+/* Pulsation lumineuse du CTA principal */
+@keyframes glowpulse{0%,100%{box-shadow:0 0 0 0 rgba(240,180,41,.4)}50%{box-shadow:0 0 26px 5px rgba(240,180,41,.22)}}
+.hero .btn-maize{animation:glowpulse 3.4s 1.8s ease-in-out infinite}
+
+/* Reflet balayant sur les boutons pleins */
+.btn-maize,.nav-cta,.plan .btn{position:relative;overflow:hidden}
+.btn-maize::after,.nav-cta::after,.plan .btn::after{content:"";position:absolute;top:0;bottom:0;width:38%;left:-60%;
+  transform:skewX(-18deg);
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);
+  transition:left .55s ease}
+.btn-maize:hover::after,.nav-cta:hover::after,.plan .btn:hover::after{left:135%}
+
+/* --- Bandeau défilant continu --- */
+.marquee{background:var(--maize);color:var(--indigo-deep);overflow:hidden;
+  border-top:3px solid var(--indigo-deep);border-bottom:3px solid var(--indigo-deep);
+  transform:rotate(-1.1deg) scale(1.02);margin:-14px 0 10px;position:relative;z-index:2}
+.marquee-track{display:flex;align-items:center;gap:26px;width:max-content;padding:13px 0;
+  font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:14.5px;
+  letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;
+  animation:scroll-x 26s linear infinite}
+.marquee-track i{font-style:normal;font-size:11px;opacity:.65}
+.marquee:hover .marquee-track{animation-play-state:paused}
+@keyframes scroll-x{to{transform:translateX(-50%)}}
+
+/* --- Révélation au défilement --- */
+.rv{opacity:0;transform:translateY(30px);
+  transition:opacity .75s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1)}
+.rv.on{opacity:1;transform:none}
+.sec-head .eyebrow::before{transform:scaleX(0);transform-origin:left;transition:transform .8s .25s cubic-bezier(.2,.7,.2,1)}
+.sec-head.rv.on .eyebrow::before{transform:scaleX(1)}
+
+/* Cartes en 3D au survol (le JS pilote la rotation) */
+.arg,.work{transition:transform .25s ease,box-shadow .25s ease;will-change:transform}
+
+/* Visuels du portfolio : panoramique lent continu */
+.work .visual{background-size:170% 170%;animation:pan 10s ease-in-out infinite alternate}
+.works .work:nth-child(2) .visual{animation-delay:-3.4s}
+.works .work:nth-child(3) .visual{animation-delay:-6.7s}
+.works .work:nth-child(4) .visual{animation-delay:-1.8s}
+.works .work:nth-child(5) .visual{animation-delay:-5.2s}
+@keyframes pan{from{background-position:0% 0%}to{background-position:100% 100%}}
+
+/* Offre vedette : liseré lumineux tournant */
+@property --ang{syntax:'<angle>';initial-value:0deg;inherits:false}
+.plan.featured{position:relative}
+.plan.featured::before{content:"";position:absolute;inset:-2px;border-radius:22px;padding:2px;
+  background:conic-gradient(from var(--ang),rgba(240,180,41,0) 0deg,rgba(240,180,41,0) 240deg,#F0B429 316deg,#FFE9A8 338deg,rgba(240,180,41,0) 360deg);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  animation:ang-spin 4.6s linear infinite;pointer-events:none}
+@keyframes ang-spin{to{--ang:360deg}}
+
+/* Sphère lumineuse dérivante dans la section Méthode */
+#process{position:relative;overflow:hidden}
+#process::after{content:"";position:absolute;width:440px;height:440px;border-radius:50%;
+  top:-150px;right:-130px;pointer-events:none;
+  background:radial-gradient(circle,rgba(240,180,41,.15),transparent 65%);
+  animation:orb 15s ease-in-out infinite alternate}
+@keyframes orb{to{transform:translate(-70px,90px) scale(1.18)}}
+.step{transition:border-color .25s,background .25s}
+.step:hover{border-color:var(--maize);background:rgba(240,180,41,.06)}
+
+/* Mobile : bandeau non incliné */
+@media(max-width:700px){.marquee{transform:none;margin:0}}
+
+/* --- Écran de chargement : le logo cascade --- */
+#ivd-loader{position:fixed;inset:0;z-index:300;background:var(--indigo-deep);display:grid;place-items:center;transition:opacity .5s ease,visibility .5s ease}
+#ivd-loader.done{opacity:0;visibility:hidden}
+#ivd-loader .lb{transform-box:fill-box;transform-origin:center top;animation:lb-drop .55s cubic-bezier(.2,.7,.2,1) both}
+#ivd-loader rect.lb:nth-of-type(2){animation-delay:.1s}
+#ivd-loader rect.lb:nth-of-type(3){animation-delay:.2s}
+#ivd-loader rect.lb:nth-of-type(4){animation-delay:.3s}
+@keyframes lb-drop{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+#ivd-loader .ld{opacity:0;animation:ld-in .35s .6s both}
+#ivd-loader .ld:last-of-type{animation-delay:.72s}
+@keyframes ld-in{to{opacity:1}}
+@media (prefers-reduced-motion: reduce){#ivd-loader{display:none}}
+</style>
+<script>document.documentElement.className+=" js";</script>
+</head>
+<body>
+<div id="ivd-loader" role="status" aria-label="Chargement">
+  <svg width="100" height="100" viewBox="0 0 128 128">
+    <line x1="20" y1="20" x2="108" y2="20" stroke="#F0B429" stroke-width="8" stroke-linecap="round" opacity=".45"/>
+    <rect class="lb" x="26" y="30" width="13" height="72" rx="6.5" fill="#F0B429"/>
+    <rect class="lb" x="49" y="30" width="13" height="50" rx="6.5" fill="#F0B429"/>
+    <rect class="lb" x="72" y="30" width="13" height="82" rx="6.5" fill="#F0B429"/>
+    <rect class="lb" x="95" y="30" width="13" height="38" rx="6.5" fill="#FFFFFF"/>
+    <circle class="ld" cx="55.5" cy="94" r="4.5" fill="#F0B429"/>
+    <circle class="ld" cx="101.5" cy="82" r="4.5" fill="#F0B429"/>
+  </svg>
+</div>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="logo" href="#" style="display:inline-flex;align-items:center;gap:10px"><svg width="26" height="26" viewBox="0 0 128 128" aria-hidden="true" style="flex-shrink:0"><line x1="20" y1="20" x2="108" y2="20" stroke="#212E63" stroke-width="9" stroke-linecap="round" opacity=".4"/><rect x="26" y="30" width="14" height="72" rx="7" fill="#212E63"/><rect x="49" y="30" width="14" height="50" rx="7" fill="#212E63"/><rect x="72" y="30" width="14" height="82" rx="7" fill="#212E63"/><rect x="95" y="30" width="14" height="38" rx="7" fill="#F0B429"/><circle cx="56" cy="94" r="5" fill="#F0B429"/></svg><span><span>IVINDO</span> <em>STUDIO</em></span></a>
+    <ul class="nav-links">
+      <li><a href="#offres">Offres &amp; tarifs</a></li>
+      <li><a href="#portfolio">Réalisations</a></li>
+      <li><a href="#process">Méthode</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="#contact">Devis gratuit</a>
+  </div>
+</nav>
+
+<header>
+  <div class="weave" aria-hidden="true"></div>
+  <div class="wrap hero">
+    <div>
+      <span class="eyebrow" style="color:var(--maize)">Création de sites web & plateformes — Libreville &amp; Afrique</span>
+      <h1>Un site qui inspire<br>confiance, conçu pour <span class="rot"><span class="w" id="rotw">vendre.</span></span></h1>
+      <p class="lead">Vos clients vous cherchent sur leur téléphone. Sites web, applications mobiles et plateformes de gestion — rapides, élégants et pensés pour le marché africain : WhatsApp intégré, mobile d'abord, prix en FCFA.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-maize" href="#offres">Voir les offres</a>
+        <a class="btn btn-ghost" href="#portfolio">Voir nos réalisations</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><b>7–10 jours</b><small>de délai moyen de livraison pour un site vitrine complet</small></div>
+      <div class="stat"><b>100% mobile</b><small>conçu d'abord pour smartphone — là où sont vos clients</small></div>
+      <div class="stat"><b>WhatsApp</b><small>bouton de contact direct intégré sur chaque page</small></div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Sites vitrines</span><i>✦</i><span>Identité visuelle</span><i>✦</i><span>SEO local</span><i>✦</i><span>WhatsApp intégré</span><i>✦</i><span>Mobile money</span><i>✦</i><span>Livraison 7–10 jours</span><i>✦</i><span>Multilingue FR/EN</span><i>✦</i><span>Réservation en ligne</span><i>✦</i>
+    <span>Sites vitrines</span><i>✦</i><span>Identité visuelle</span><i>✦</i><span>SEO local</span><i>✦</i><span>WhatsApp intégré</span><i>✦</i><span>Mobile money</span><i>✦</i><span>Livraison 7–10 jours</span><i>✦</i><span>Multilingue FR/EN</span><i>✦</i><span>Réservation en ligne</span><i>✦</i>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Pourquoi maintenant</span>
+      <h2>En 2026, ne pas avoir de site, c'est laisser vos clients aux concurrents.</h2>
+    </div>
+    <div class="args">
+      <div class="arg">
+        <span class="tag">Crédibilité</span>
+        <h3>Gagner les gros contrats</h3>
+        <p>Donneurs d'ordre, partenaires et acheteurs internationaux vérifient votre site avant de signer. Une présence web professionnelle, c'est la différence entre un devis lu et un devis ignoré.</p>
+      </div>
+      <div class="arg">
+        <span class="tag">Marché</span>
+        <h3>Un continent connecté</h3>
+        <p>Le numérique explose au Gabon et partout en Afrique. Vos clients vous cherchent déjà sur leur téléphone — soyez la réponse qu'ils trouvent.</p>
+      </div>
+      <div class="arg">
+        <span class="tag">Conversion</span>
+        <h3>Du visiteur au client</h3>
+        <p>Chaque site est construit pour convertir : bouton WhatsApp visible en permanence, appels à l'action clairs, chargement rapide même en 3G.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="offres">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Offres &amp; tarifs</span>
+      <h2>Du site vitrine à la plateforme sur mesure.</h2>
+      <p>Sites web, applications mobiles et plateformes de gestion — un prix clair, zéro surprise. Paiement en deux fois : 50% à la commande, 50% à la livraison. Mobile money accepté (Airtel Money, Moov Money).</p>
+    </div>
+    <div class="plans">
+      <div class="plan">
+        <span class="pill">Essentiel</span>
+        <h3>PME &amp; Commerces</h3>
+        <div class="price"><b>250 000 FCFA</b><small>paiement unique</small></div>
+        <ul>
+          <li>Site vitrine une page (4–5 sections)</li>
+          <li>Design personnalisé, responsive mobile</li>
+          <li>Bouton WhatsApp + formulaire de contact</li>
+          <li>Carte Google Maps &amp; horaires</li>
+          <li>Livré en 7 à 10 jours</li>
+        </ul>
+        <div class="cible">Idéal pour : boutiques, restaurants, salons, prestataires indépendants.</div>
+        <a class="btn" href="#contact">Demander un devis</a>
+      </div>
+      <div class="plan featured">
+        <span class="pill">Business — le plus demandé</span>
+        <h3>Entreprises structurées</h3>
+        <div class="price"><b>500 000 – 1 000 000 FCFA</b><small>selon périmètre</small></div>
+        <ul>
+          <li>Site multi-pages sur mesure (5 à 8 pages)</li>
+          <li>Direction artistique complète</li>
+          <li>Pages réalisations / équipe / certifications</li>
+          <li>Référencement Google de base (SEO)</li>
+          <li>Version bilingue FR/EN en option (+250 000)</li>
+          <li>Formation à la prise en main incluse</li>
+        </ul>
+        <div class="cible">Idéal pour : BTP, cabinets (avocats, experts-comptables), agro-exportateurs, cliniques.</div>
+        <a class="btn" href="#contact">Demander un devis</a>
+      </div>
+      <div class="plan">
+        <span class="pill">Premium</span>
+        <h3>Hôtellerie &amp; Immobilier</h3>
+        <div class="price"><b>1 500 000 – 2 500 000 FCFA</b><small>selon fonctionnalités</small></div>
+        <ul>
+          <li>Tout le pack Business, plus :</li>
+          <li>Module de réservation ou listing de biens</li>
+          <li>Galeries immersives photo &amp; vidéo</li>
+          <li>Multilingue (FR/EN, autres sur demande)</li>
+          <li>Paiement en ligne mobile money en option</li>
+        </ul>
+        <div class="cible">Idéal pour : hôtels, résidences meublées, agences immobilières, promoteurs.</div>
+        <a class="btn" href="#contact">Demander un devis</a>
+      </div>
+      <div class="plan">
+        <span class="pill">Application mobile</span>
+        <h3>Apps Android &amp; iOS</h3>
+        <div class="price"><b>à partir de 3 000 000 FCFA</b><small>selon fonctionnalités</small></div>
+        <ul>
+          <li>Application native Android &amp; iOS</li>
+          <li>Design UX/UI sur mesure</li>
+          <li>Comptes utilisateurs &amp; notifications push</li>
+          <li>Connexion à vos données (API)</li>
+          <li>Publication sur Play Store &amp; App Store</li>
+        </ul>
+        <div class="cible">Idéal pour : services à la demande, fidélité client, logistique, commerce.</div>
+        <a class="btn" href="#contact">Demander un devis</a>
+      </div>
+      <div class="plan featured">
+        <span class="pill">Plateforme sur mesure</span>
+        <h3>SaaS &amp; Gestion</h3>
+        <div class="price"><b>3 500 000 – 4 000 000 FCFA</b><small>selon modules</small></div>
+        <ul>
+          <li>Plateforme de gestion complète (type intranet)</li>
+          <li>Espaces multi-rôles &amp; droits d'accès</li>
+          <li>Tableaux de bord &amp; statistiques</li>
+          <li>Base de données sécurisée, hébergement géré</li>
+          <li>Formation des équipes incluse</li>
+          <li>Déjà déployé pour un établissement au Gabon</li>
+        </ul>
+        <div class="cible">Idéal pour : écoles, cliniques, associations, institutions, églises.</div>
+        <a class="btn" href="#contact">Demander un devis</a>
+      </div>
+    </div>
+    <p class="maint">Maintenance &amp; accompagnement : <b>50 000 à 150 000 FCFA/mois</b> — hébergement géré, mises à jour, modifications illimitées raisonnables.</p>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Réalisations</span>
+      <h2>Du site vitrine à la plateforme métier.</h2>
+      <p>Des réalisations concrètes — dont une plateforme de gestion déjà déployée dans un établissement au Gabon. Cliquez pour explorer.</p>
+    </div>
+
+    <a class="work-feature" href="#" data-gallery="pngs" data-title="Plateforme de gestion scolaire">
+      <div class="feature-visual" style="background-image:url('assets/pngs/01-synthese-direction.jpg')">
+        <span class="feature-badge">Déjà déployé au Gabon</span>
+      </div>
+      <div class="feature-body">
+        <span class="sect">Plateforme SaaS · Gestion &amp; Éducation</span>
+        <h3>Plateforme numérique de gestion scolaire</h3>
+        <p>Une plateforme, cinq espaces : direction, comptabilité, vie scolaire, professeurs et familles. Inscriptions, notes, bulletins, finances, pointage des enseignants — tout au même endroit, sur ordinateur comme sur téléphone. Pensée pour le Gabon : Airtel Money, Moov Money, états au format officiel.</p>
+        <span class="go">Voir la plateforme en images</span>
+      </div>
+    </a>
+
+    <div class="works">
+      <a class="work" href="#" data-src="demos/villa-lana.html" data-title="La Villa Lana — Maison d'hôtes">
+        <div class="visual v-hotel"><span class="fake-logo">LA VILLA LANA</span></div>
+        <div class="body">
+          <span class="sect">Hôtellerie &amp; Tourisme</span>
+          <h3>Maison d'hôtes avec réservation</h3>
+          <p>Site vitrine élégant pour une maison d'hôtes en bord de mer : galerie immersive, calendrier et demande de réservation directe par WhatsApp.</p>
+          <span class="go">Visiter le site</span>
+        </div>
+      </a>
+      <a class="work" href="#" data-demo="btp" data-title="Démo BTP &amp; Construction">
+        <div class="visual v-btp"><span class="fake-logo">BTP &amp; CONSTRUCTION</span></div>
+        <div class="body">
+          <span class="sect">BTP &amp; Construction</span>
+          <h3>Entreprise générale de bâtiment</h3>
+          <p>Identité robuste inspirée de la signalétique chantier : réalisations chiffrées, certifications, appel d'offres facilité.</p>
+          <span class="go">Visiter la démo</span>
+        </div>
+      </a>
+      <a class="work" href="#" data-demo="cabinet" data-title="Démo Cabinet professionnel">
+        <div class="visual v-cabinet"><span class="fake-logo">CABINET D'AVOCATS</span></div>
+        <div class="body">
+          <span class="sect">Cabinet professionnel</span>
+          <h3>Société d'avocats</h3>
+          <p>Sobriété et autorité : domaines d'intervention, associés, honoraires transparents, prise de rendez-vous.</p>
+          <span class="go">Visiter la démo</span>
+        </div>
+      </a>
+    </div>
+    <p class="note-secteurs">Également sur demande : applications mobiles, sites pour cliniques, commerces, restaurants, associations et institutions.</p>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" style="color:var(--maize)">Méthode</span>
+      <h2>De l'idée au site en ligne, en quatre étapes.</h2>
+      <p>Un interlocuteur unique, des points d'étape sur WhatsApp, aucune mauvaise surprise.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><h3>Brief</h3><p>Un échange de 30 minutes pour comprendre votre activité, vos clients et vos objectifs. Gratuit et sans engagement.</p></div>
+      <div class="step"><h3>Maquette</h3><p>Vous recevez une première version visuelle sous 3 à 4 jours. Vous validez la direction avant que nous allions plus loin.</p></div>
+      <div class="step"><h3>Développement</h3><p>Nous construisons le site complet : contenus, images, optimisation mobile et vitesse de chargement.</p></div>
+      <div class="step"><h3>Mise en ligne</h3><p>Nom de domaine, hébergement, mise en ligne et formation. Votre site est opérationnel — et vous savez le faire vivre.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="card">
+      <div>
+        <span class="eyebrow">Contact</span>
+        <h2 style="margin-top:14px">Parlons de votre projet. Devis gratuit sous 24h.</h2>
+        <p>Décrivez votre activité en quelques lignes sur WhatsApp — vous recevez une proposition claire avec prix et délai, sans engagement.</p>
+      </div>
+      <ul class="contact-list">
+        <li class="wa"><a href="https://wa.me/24174577882" style="display:flex;gap:14px;align-items:center;text-decoration:none;color:inherit"><span class="ic">WA</span><span><b>WhatsApp</b><br>+241 074577882 <em style="opacity:.6;font-style:normal">(réponse rapide)</em></span></a></li>
+        <li><span class="ic">@</span><span><b>Email</b><br>contact@ivindostudio.com</span></li>
+        <li><span class="ic">IG</span><span><b>Instagram</b><br>@ivindostudio</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer>
+    <span>© 2026 Ivindo Studio — Sites web, applications & plateformes sur mesure.</span>
+    <span>Libreville · À distance partout en Afrique</span>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Barre de progression de lecture */
+  var bar=document.createElement('div');
+  bar.id='scroll-progress';
+  document.body.appendChild(bar);
+  function onScroll(){
+    var h=document.documentElement;
+    var max=h.scrollHeight-h.clientHeight;
+    bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';
+  }
+  document.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+
+  /* Halo qui suit le curseur dans le hero */
+  var header=document.querySelector('header');
+  if(header&&!reduced&&window.matchMedia('(pointer:fine)').matches){
+    var spot=document.createElement('div');
+    spot.id='spot';
+    header.appendChild(spot);
+    header.addEventListener('pointermove',function(e){
+      var r=header.getBoundingClientRect();
+      spot.style.left=(e.clientX-r.left)+'px';
+      spot.style.top=(e.clientY-r.top)+'px';
+    });
+  }
+
+  /* Mot rotatif du titre */
+  var rotw=document.getElementById('rotw');
+  if(rotw&&!reduced){
+    var words=['vendre.','convertir.','marquer.','durer.'];
+    var i=0;
+    setInterval(function(){
+      rotw.classList.add('out');
+      setTimeout(function(){
+        i=(i+1)%words.length;
+        rotw.textContent=words[i];
+        rotw.classList.remove('out');
+        rotw.classList.add('pre');
+        void rotw.offsetWidth; /* force le reflow pour rejouer la transition */
+        rotw.classList.remove('pre');
+      },380);
+    },2600);
+  }
+
+  /* Révélation au défilement, avec décalage en cascade par groupe */
+  var groups=[
+    '.sec-head','.args .arg','.plans .plan','.works .work',
+    '.steps .step','#contact .card','.maint','.note-secteurs','.quartiers .q'
+  ];
+  var targets=[];
+  groups.forEach(function(sel){
+    var els=document.querySelectorAll(sel);
+    els.forEach(function(el,idx){
+      el.classList.add('rv');
+      el.style.transitionDelay=Math.min(idx*90,450)+'ms';
+      targets.push(el);
+    });
+  });
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){en.target.classList.add('on');io.unobserve(en.target);}
+      });
+    },{threshold:.15,rootMargin:'0px 0px -6% 0px'});
+    targets.forEach(function(el){io.observe(el);});
+  }else{
+    targets.forEach(function(el){el.classList.add('on');});
+  }
+
+  /* Inclinaison 3D des cartes au survol */
+  if(!reduced&&window.matchMedia('(pointer:fine)').matches){
+    document.querySelectorAll('.work,.arg').forEach(function(el){
+      el.addEventListener('pointermove',function(e){
+        var r=el.getBoundingClientRect();
+        var x=(e.clientX-r.left)/r.width-.5;
+        var y=(e.clientY-r.top)/r.height-.5;
+        el.style.transform='perspective(750px) rotateX('+(-y*6).toFixed(2)+'deg) rotateY('+(x*8).toFixed(2)+'deg) translateY(-5px)';
+      });
+      el.addEventListener('pointerleave',function(){el.style.transform='';});
+    });
+  }
+})();
+</script>
+<script>
+(function(){
+  var l=document.getElementById('ivd-loader');
+  if(!l)return;
+  var out=false;
+  function done(){if(out)return;out=true;l.classList.add('done');setTimeout(function(){if(l.parentNode)l.parentNode.removeChild(l)},600);}
+  if(document.readyState==='complete'){setTimeout(done,750);}
+  else{window.addEventListener('load',function(){setTimeout(done,500);});}
+  setTimeout(done,2000);
+})();
+</script>
+
+<style>
+#demo-overlay{position:fixed;inset:0;z-index:400;background:#0E1330;display:none;flex-direction:column}
+#demo-overlay.open{display:flex}
+#demo-bar{display:flex;align-items:center;gap:16px;padding:12px 18px;background:#141C42;color:#fff;flex-shrink:0}
+#demo-close{background:#F0B429;color:#141C42;border:none;font:600 14px 'Instrument Sans',sans-serif;padding:10px 18px;border-radius:100px;cursor:pointer}
+#demo-close:hover{background:#E3A81F}
+#demo-title{font:600 14px 'Instrument Sans',sans-serif;opacity:.9;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#demo-frame{flex:1;width:100%;border:0;background:#fff}
+</style>
+<div id="demo-overlay" role="dialog" aria-modal="true" aria-label="Aperçu de la démonstration">
+  <div id="demo-bar">
+    <button id="demo-close" type="button">← Retour au portfolio</button>
+    <span id="demo-title"></span>
+  </div>
+  <iframe id="demo-frame" title="Démonstration"></iframe>
+</div>
+
+<div id="pngs-gallery" class="gal-overlay" role="dialog" aria-modal="true" aria-label="Captures de la plateforme de gestion scolaire">
+  <div class="gal-bar">
+    <span class="gal-caption" id="gal-caption"></span>
+    <div class="gal-controls">
+      <button type="button" id="gal-prev" aria-label="Capture précédente">‹</button>
+      <span class="gal-count" id="gal-count"></span>
+      <button type="button" id="gal-next" aria-label="Capture suivante">›</button>
+      <button type="button" id="gal-close">✕ Fermer</button>
+    </div>
+  </div>
+  <div class="gal-stage"><img id="gal-img" src="" alt=""></div>
+</div>
+
+<script type="text/plain" id="src-btp">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BATIPRO — Entreprise générale de bâtiment, Libreville</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --charcoal:#1C1B19;
+  --concrete:#E8E6E1;
+  --concrete-2:#DDDAD3;
+  --safety:#F5B301;
+  --steel:#6E7176;
+  --white:#FFFFFF;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{font-family:'Archivo',system-ui,sans-serif;background:var(--concrete);color:var(--charcoal);line-height:1.6}
+h1,h2,h3,.disp{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.015em}
+a{color:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+:focus-visible{outline:3px solid var(--safety);outline-offset:3px}
+.hazard{height:16px;background:repeating-linear-gradient(45deg,var(--safety) 0 16px,var(--charcoal) 16px 32px)}
+
+/* Demo ribbon */
+.demo-ribbon{background:var(--charcoal);color:#fff;font-size:12.5px;text-align:center;padding:8px 16px}
+.demo-ribbon a{color:var(--safety);font-weight:600}
+
+nav{background:var(--charcoal);color:#fff;position:sticky;top:0;z-index:50}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{font-family:'Anton',sans-serif;font-size:22px;text-decoration:none;letter-spacing:.03em}
+.logo b{color:var(--safety)}
+.nav-links{display:flex;gap:26px;list-style:none;font-size:13.5px;font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+.nav-links a{text-decoration:none;color:#C9C7C2;transition:color .2s}
+.nav-links a:hover{color:var(--safety)}
+.nav-cta{background:var(--safety);color:var(--charcoal);padding:11px 20px;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.05em;text-decoration:none}
+@media(max-width:860px){.nav-links{display:none}}
+
+/* Hero */
+header{background:var(--charcoal);color:#fff;position:relative}
+.hero{padding:96px 0 84px;display:grid;grid-template-columns:1.3fr .7fr;gap:48px;align-items:end}
+.kicker{display:inline-block;background:var(--safety);color:var(--charcoal);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:6px 14px;margin-bottom:22px}
+.hero h1{font-size:clamp(44px,7vw,88px);line-height:.98;color:#fff}
+.hero h1 span{color:var(--safety)}
+.hero p{margin-top:22px;color:#B9B6B0;font-size:17px;max-width:50ch}
+.hero-ctas{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:15px 28px;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.05em;text-decoration:none;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-y{background:var(--safety);color:var(--charcoal)}
+.btn-o{border:2px solid #4A4844;color:#fff}
+.hero-nums{display:grid;gap:2px;background:#4A4844}
+.hnum{background:var(--charcoal);padding:22px 24px}
+.hnum b{font-family:'Anton',sans-serif;font-size:44px;color:var(--safety);display:block;line-height:1}
+.hnum small{color:#B9B6B0;font-size:13px;text-transform:uppercase;letter-spacing:.08em}
+@media(max-width:900px){.hero{grid-template-columns:1fr;padding:72px 0 60px}}
+
+section{padding:84px 0}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:44px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(30px,4.4vw,52px);line-height:1}
+.sec-head .idx{font-family:'Anton',sans-serif;color:var(--steel);font-size:15px;letter-spacing:.1em}
+
+/* Services */
+.services{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--charcoal);border:2px solid var(--charcoal)}
+.svc{background:var(--concrete);padding:34px 30px;position:relative;transition:background .2s}
+.svc:hover{background:var(--white)}
+.svc h3{font-size:22px}
+.svc h3::before{content:"";display:block;width:44px;height:8px;background:var(--safety);margin-bottom:16px}
+.svc p{margin-top:12px;font-size:14.5px;color:#4B4A47}
+.svc ul{margin-top:14px;list-style:none;font-size:13.5px;color:#4B4A47;display:grid;gap:6px}
+.svc li::before{content:"— ";color:var(--safety);font-weight:700}
+@media(max-width:820px){.services{grid-template-columns:1fr}}
+
+/* Réalisations */
+#realisations{background:var(--concrete-2)}
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.proj{background:var(--white);border:2px solid var(--charcoal)}
+.proj .ph{height:180px;position:relative;display:flex;align-items:flex-end;padding:16px}
+.ph-1{background:linear-gradient(160deg,#3A3835,#6E7176 70%,#9DA0A5)}
+.ph-2{background:linear-gradient(160deg,#2B2A28,#55534F 65%,#8B8E93)}
+.ph-3{background:linear-gradient(160deg,#454340,#7C7F84 70%,#B4B7BC)}
+.proj .ph .lbl{background:var(--safety);color:var(--charcoal);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:5px 11px}
+.proj .info{padding:20px 20px 24px}
+.proj h3{font-size:18px;letter-spacing:.02em}
+.proj p{margin-top:8px;font-size:13.5px;color:#4B4A47}
+.proj .meta{margin-top:14px;display:flex;justify-content:space-between;font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);border-top:1px solid var(--concrete-2);padding-top:12px}
+@media(max-width:900px){.projects{grid-template-columns:1fr}}
+
+/* Engagements */
+.engage{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--charcoal);border:2px solid var(--charcoal)}
+.eng{background:var(--charcoal);color:#fff;padding:28px 24px}
+.eng b{font-family:'Anton',sans-serif;font-size:19px;color:var(--safety);display:block}
+.eng small{display:block;margin-top:8px;color:#B9B6B0;font-size:13px;line-height:1.5}
+@media(max-width:900px){.engage{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.engage{grid-template-columns:1fr}}
+
+/* Contact */
+#contact{background:var(--charcoal);color:#fff}
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
+.contact-grid h2{font-size:clamp(32px,4.6vw,54px);line-height:1}
+.contact-grid h2 span{color:var(--safety)}
+.contact-grid p{margin-top:16px;color:#B9B6B0}
+.c-box{display:grid;gap:12px}
+.c-item{border:2px solid #4A4844;padding:18px 20px;display:flex;gap:16px;align-items:center;font-size:15px}
+.c-item .tag{background:var(--safety);color:var(--charcoal);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.08em;padding:6px 10px;flex-shrink:0}
+@media(max-width:860px){.contact-grid{grid-template-columns:1fr}}
+
+footer{background:var(--charcoal);color:#8B8880;font-size:13px;padding:26px 0 34px;border-top:1px solid #33322F}
+.f-inner{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+
+<div class="demo-ribbon">Site de démonstration réalisé par Ivindo Studio</div>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="logo" href="#">BATI<b>PRO</b> CI</a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#realisations">Réalisations</a></li>
+      <li><a href="#engagements">Engagements</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="#contact">Demander un devis</a>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap hero">
+    <div>
+      <span class="kicker">Entreprise générale de bâtiment — Libreville</span>
+      <h1>Nous construisons<br>ce qui <span>dure.</span></h1>
+      <p>Gros œuvre, second œuvre, réhabilitation : BATIPRO accompagne promoteurs, entreprises et institutions sur toute la Gabon depuis 2011. Délais tenus, normes respectées, chantiers propres.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-y" href="#contact">Lancer votre projet</a>
+        <a class="btn btn-o" href="#realisations">Voir nos chantiers</a>
+      </div>
+    </div>
+    <div class="hero-nums">
+      <div class="hnum"><b>120+</b><small>chantiers livrés</small></div>
+      <div class="hnum"><b>15 ans</b><small>d'expérience terrain</small></div>
+      <div class="hnum"><b>98%</b><small>de délais respectés</small></div>
+    </div>
+  </div>
+  <div class="hazard" aria-hidden="true"></div>
+</header>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Nos corps de métier</h2>
+      <span class="idx">Services — 04</span>
+    </div>
+    <div class="services">
+      <div class="svc">
+        <h3>Gros œuvre</h3>
+        <p>Fondations, structures béton armé, élévations et dalles. La colonne vertébrale de votre projet, exécutée dans les règles de l'art.</p>
+        <ul><li>Terrassement &amp; fondations</li><li>Béton armé &amp; maçonnerie</li><li>Charpente &amp; couverture</li></ul>
+      </div>
+      <div class="svc">
+        <h3>Second œuvre</h3>
+        <p>Tout ce qui transforme une structure en espace de vie ou de travail : finitions soignées, matériaux durables.</p>
+        <ul><li>Électricité &amp; plomberie</li><li>Carrelage, staff &amp; peinture</li><li>Menuiserie alu &amp; bois</li></ul>
+      </div>
+      <div class="svc">
+        <h3>Réhabilitation</h3>
+        <p>Remise à neuf de bâtiments existants : bureaux, commerces, résidences. Diagnostic, planning, exécution sans interruption d'activité quand c'est possible.</p>
+        <ul><li>Diagnostic structure</li><li>Rénovation complète</li><li>Mise aux normes</li></ul>
+      </div>
+      <div class="svc">
+        <h3>VRD &amp; aménagements</h3>
+        <p>Voiries, réseaux divers et aménagements extérieurs pour lotissements, zones d'activités et résidences.</p>
+        <ul><li>Voiries &amp; assainissement</li><li>Adduction d'eau</li><li>Clôtures &amp; espaces verts</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="realisations">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Chantiers récents</h2>
+      <span class="idx">Réalisations — 2023 → 2026</span>
+    </div>
+    <div class="projects">
+      <div class="proj">
+        <div class="ph ph-1"><span class="lbl">Livré 2025</span></div>
+        <div class="info">
+          <h3>Immeuble R+4 — Cocody Angré</h3>
+          <p>Construction complète d'un immeuble résidentiel de 16 appartements, du terrassement à la livraison clés en main.</p>
+          <div class="meta"><span>Résidentiel</span><span>14 mois</span></div>
+        </div>
+      </div>
+      <div class="proj">
+        <div class="ph ph-2"><span class="lbl">Livré 2024</span></div>
+        <div class="info">
+          <h3>Plateau logistique — Yopougon</h3>
+          <p>Entrepôt de 2 400 m² avec bureaux intégrés pour un acteur de la distribution : dalle industrielle, charpente métallique.</p>
+          <div class="meta"><span>Industriel</span><span>9 mois</span></div>
+        </div>
+      </div>
+      <div class="proj">
+        <div class="ph ph-3"><span class="lbl">En cours</span></div>
+        <div class="info">
+          <h3>École primaire — Bingerville</h3>
+          <p>Groupe scolaire de 12 classes avec bloc administratif et cour couverte, pour une fondation privée.</p>
+          <div class="meta"><span>Institutionnel</span><span>Livraison T4 2026</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="engagements">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Nos engagements</h2>
+      <span class="idx">Ce qui ne se négocie pas</span>
+    </div>
+    <div class="engage">
+      <div class="eng"><b>Sécurité chantier</b><small>Équipes formées, EPI obligatoires, zéro compromis sur la protection des ouvriers et des riverains.</small></div>
+      <div class="eng"><b>Devis détaillé</b><small>Chaque poste chiffré ligne par ligne. Vous savez exactement ce que vous payez, avant de signer.</small></div>
+      <div class="eng"><b>Délais contractuels</b><small>Un planning signé vaut engagement. Pénalités de retard assumées au contrat.</small></div>
+      <div class="eng"><b>Matériaux certifiés</b><small>Fournisseurs agréés, fiches techniques disponibles, traçabilité sur demande.</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <h2>Un projet ?<br><span>Parlons chiffres.</span></h2>
+      <p>Envoyez-nous votre plan ou décrivez votre projet : vous recevez un devis détaillé sous 72 heures. Déplacement sur site gratuit dans le Grand Libreville.</p>
+    </div>
+    <div class="c-box">
+      <div class="c-item"><span class="tag">Tél</span> +225 07 XX XX XX XX</div>
+      <div class="c-item"><span class="tag">WhatsApp</span> +225 07 XX XX XX XX — envoyez vos plans directement</div>
+      <div class="c-item"><span class="tag">Email</span> devis@batipro-ci.com</div>
+      <div class="c-item"><span class="tag">Bureau</span> Zone 4, Rue du Canal — Marcory, Libreville</div>
+    </div>
+  </div>
+</section>
+
+<div class="hazard" aria-hidden="true"></div>
+<footer>
+  <div class="wrap f-inner">
+    <span>© 2026 BATIPRO — RCCM CI-ABJ-XX-XXXX. Site de démonstration.</span>
+    <span>Conçu par Ivindo Studio</span>
+  </div>
+</footer>
+
+</body>
+</html>
+
+</script>
+<script type="text/plain" id="src-immo">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lagune &amp; Pierre — Immobilier de caractère à Libreville</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --white:#FDFDFB;
+  --lagoon:#0F3B4C;
+  --lagoon-deep:#092836;
+  --sand:#E9DFCB;
+  --brass:#B08D4F;
+  --ink:#1B2226;
+  --muted:#5C6A70;
+  --line:#E3E0D8;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{font-family:'Figtree',system-ui,sans-serif;background:var(--white);color:var(--ink);line-height:1.65}
+h1,h2,h3,.serif{font-family:'Fraunces',Georgia,serif;font-weight:400;letter-spacing:-.01em}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+:focus-visible{outline:3px solid var(--brass);outline-offset:3px}
+.eyebrow{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);font-weight:600}
+
+.demo-ribbon{background:var(--lagoon-deep);color:#fff;font-size:12.5px;text-align:center;padding:8px 16px}
+.demo-ribbon a{color:var(--sand);font-weight:600}
+
+nav{background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{font-family:'Fraunces',serif;font-size:21px;text-decoration:none;letter-spacing:.01em}
+.logo em{font-style:italic;color:var(--brass)}
+.nav-links{display:flex;gap:30px;list-style:none;font-size:14px;font-weight:500}
+.nav-links a{text-decoration:none;color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--lagoon)}
+.nav-cta{border:1px solid var(--lagoon);color:var(--lagoon);padding:11px 22px;border-radius:2px;text-decoration:none;font-size:13.5px;font-weight:600;transition:all .2s}
+.nav-cta:hover{background:var(--lagoon);color:#fff}
+@media(max-width:840px){.nav-links{display:none}}
+
+/* Hero */
+header{background:linear-gradient(170deg,var(--lagoon) 0%,var(--lagoon-deep) 100%);color:#fff;position:relative;overflow:hidden}
+header::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;border:1px solid rgba(233,223,203,.25)}
+header::before{content:"";position:absolute;right:-40px;top:-40px;width:260px;height:260px;border-radius:50%;border:1px solid rgba(233,223,203,.18)}
+.hero{padding:104px 0 96px;max-width:720px;position:relative;z-index:1}
+.hero h1{font-size:clamp(38px,5.4vw,62px);line-height:1.1;font-weight:300}
+.hero h1 i{font-style:italic;color:var(--sand)}
+.hero p{margin-top:22px;font-size:17px;color:#C4D2D8;max-width:52ch}
+.hero-ctas{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 28px;border-radius:2px;font-weight:600;font-size:14px;text-decoration:none;transition:transform .15s,background .2s,color .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-sand{background:var(--sand);color:var(--lagoon-deep)}
+.btn-line{border:1px solid rgba(233,223,203,.5);color:#fff}
+.hero-meta{margin-top:52px;display:flex;gap:44px;flex-wrap:wrap}
+.hm b{font-family:'Fraunces',serif;font-size:28px;font-weight:500;color:var(--sand);display:block}
+.hm small{color:#9FB4BC;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase}
+
+section{padding:92px 0}
+.sec-head{max-width:620px;margin-bottom:52px}
+.sec-head h2{font-size:clamp(28px,3.8vw,44px);margin-top:14px;font-weight:400;line-height:1.15}
+.sec-head p{margin-top:14px;color:var(--muted)}
+
+/* Biens */
+.biens{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.bien{border:1px solid var(--line);background:var(--white);transition:box-shadow .2s,transform .18s}
+.bien:hover{transform:translateY(-4px);box-shadow:0 20px 44px rgba(15,59,76,.12)}
+.bien .ph{height:230px;position:relative;display:flex;align-items:flex-start;justify-content:flex-end;padding:14px}
+.ph-a{background:linear-gradient(155deg,#134759 0%,#2E7288 55%,#E9DFCB 150%)}
+.ph-b{background:linear-gradient(155deg,#0D303E 0%,#1F5A70 60%,#B7CBD2 150%)}
+.ph-c{background:linear-gradient(155deg,#1A505F 0%,#3E8195 55%,#F1EADD 150%)}
+.bien .badge{background:rgba(9,40,54,.85);color:var(--sand);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding:6px 12px;border-radius:2px}
+.bien .info{padding:24px 24px 28px}
+.bien .quartier{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);font-weight:600}
+.bien h3{margin-top:8px;font-size:21px;font-weight:500}
+.bien .specs{margin-top:12px;display:flex;gap:16px;font-size:13px;color:var(--muted);flex-wrap:wrap}
+.bien .specs span{display:inline-flex;align-items:center;gap:6px}
+.bien .specs span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--brass)}
+.bien .prix{margin-top:18px;padding-top:18px;border-top:1px solid var(--line);font-family:'Fraunces',serif;font-size:24px;font-weight:500;color:var(--lagoon)}
+.bien .prix small{display:block;font-family:'Figtree',sans-serif;font-size:12px;color:var(--muted);font-weight:400;margin-top:2px}
+@media(max-width:940px){.biens{grid-template-columns:1fr}}
+.all-biens{margin-top:36px;text-align:center}
+.all-biens a{color:var(--lagoon);font-weight:600;font-size:15px;text-decoration:none;border-bottom:1px solid var(--brass);padding-bottom:3px}
+
+/* Services */
+#services{background:var(--sand)}
+#services .sec-head h2{color:var(--lagoon-deep)}
+.svcs{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.svc{background:var(--white);padding:32px 28px;border-radius:2px}
+.svc .num{font-family:'Fraunces',serif;font-style:italic;color:var(--brass);font-size:15px}
+.svc h3{margin-top:10px;font-size:20px;font-weight:500}
+.svc p{margin-top:10px;font-size:14.5px;color:var(--muted)}
+@media(max-width:900px){.svcs{grid-template-columns:1fr}}
+
+/* Quartiers */
+.quartiers{display:flex;flex-wrap:wrap;gap:12px}
+.q{border:1px solid var(--line);border-radius:100px;padding:11px 22px;font-size:14px;color:var(--muted);transition:all .2s;cursor:default}
+.q:hover{border-color:var(--lagoon);color:var(--lagoon)}
+.q b{color:var(--ink);font-weight:600}
+
+/* Contact */
+#contact{background:var(--lagoon-deep);color:#fff}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.contact-grid h2{font-size:clamp(30px,4vw,46px);font-weight:300;line-height:1.15}
+.contact-grid h2 i{font-style:italic;color:var(--sand)}
+.contact-grid p{margin-top:16px;color:#B7C8CF}
+.c-list{display:grid;gap:14px}
+.c-item{border:1px solid rgba(233,223,203,.25);padding:20px 22px;border-radius:2px}
+.c-item b{display:block;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--sand);margin-bottom:6px}
+.c-item span{font-size:16px}
+@media(max-width:860px){.contact-grid{grid-template-columns:1fr}}
+
+footer{padding:30px 0 40px;font-size:13px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+
+<div class="demo-ribbon">Site de démonstration réalisé par Ivindo Studio</div>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="logo" href="#">Lagune <em>&amp;</em> Pierre</a>
+    <ul class="nav-links">
+      <li><a href="#biens">Biens en vedette</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#quartiers">Quartiers</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="#contact">Estimer mon bien</a>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap hero">
+    <span class="eyebrow" style="color:var(--sand)">Agence immobilière — Libreville</span>
+    <h1 style="margin-top:16px">Des adresses rares,<br>un accompagnement <i>sur mesure.</i></h1>
+    <p>Vente, location et gestion de biens de caractère à Libreville. Nous sélectionnons peu, nous accompagnons bien : chaque bien de notre portefeuille est visité, vérifié et documenté.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-sand" href="#biens">Découvrir les biens</a>
+      <a class="btn btn-line" href="#contact">Confier mon bien</a>
+    </div>
+    <div class="hero-meta">
+      <div class="hm"><b>340+</b><small>transactions réalisées</small></div>
+      <div class="hm"><b>12 ans</b><small>sur le marché abidjanais</small></div>
+      <div class="hm"><b>48h</b><small>délai moyen de visite</small></div>
+    </div>
+  </div>
+</header>
+
+<section id="biens">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Sélection du moment</span>
+      <h2>Trois biens, trois manières d'habiter Libreville.</h2>
+    </div>
+    <div class="biens">
+      <div class="bien">
+        <div class="ph ph-a"><span class="badge">Vente</span></div>
+        <div class="info">
+          <span class="quartier">Riviera Golf</span>
+          <h3>Villa contemporaine avec piscine</h3>
+          <div class="specs"><span>5 chambres</span><span>420 m²</span><span>Jardin 800 m²</span></div>
+          <div class="prix">450 000 000 FCFA<small>Titre foncier disponible</small></div>
+        </div>
+      </div>
+      <div class="bien">
+        <div class="ph ph-b"><span class="badge">Vente</span></div>
+        <div class="info">
+          <span class="quartier">Plateau</span>
+          <h3>Appartement de standing, vue lagune</h3>
+          <div class="specs"><span>3 chambres</span><span>165 m²</span><span>Parking 2 places</span></div>
+          <div class="prix">180 000 000 FCFA<small>Immeuble sécurisé, ascenseur</small></div>
+        </div>
+      </div>
+      <div class="bien">
+        <div class="ph ph-c"><span class="badge">Opportunité</span></div>
+        <div class="info">
+          <span class="quartier">Bingerville</span>
+          <h3>Terrain constructible, zone résidentielle</h3>
+          <div class="specs"><span>1 200 m²</span><span>ACD en cours</span><span>Voie bitumée</span></div>
+          <div class="prix">85 000 000 FCFA<small>Idéal projet résidentiel</small></div>
+        </div>
+      </div>
+    </div>
+    <div class="all-biens"><a href="#contact">Recevoir la liste complète des biens disponibles →</a></div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Ce que nous faisons</span>
+      <h2>Un seul interlocuteur, de l'estimation à la remise des clés.</h2>
+    </div>
+    <div class="svcs">
+      <div class="svc">
+        <span class="num">I.</span>
+        <h3>Vente</h3>
+        <p>Estimation argumentée, dossier photo professionnel, diffusion ciblée et accompagnement notarial jusqu'à la signature.</p>
+      </div>
+      <div class="svc">
+        <span class="num">II.</span>
+        <h3>Location</h3>
+        <p>Sélection rigoureuse des locataires, bail sécurisé, état des lieux détaillé. Pour propriétaires exigeants et locataires sérieux.</p>
+      </div>
+      <div class="svc">
+        <span class="num">III.</span>
+        <h3>Gestion locative</h3>
+        <p>Loyers encaissés, entretien suivi, reporting mensuel. Vous êtes à Paris, New York ou Libreville ? Votre bien travaille pour vous.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="quartiers">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Notre terrain de jeu</span>
+      <h2>Les quartiers que nous connaissons rue par rue.</h2>
+    </div>
+    <div class="quartiers">
+      <span class="q"><b>Cocody</b> — Riviera, Angré, Danga</span>
+      <span class="q"><b>Plateau</b> — affaires &amp; standing</span>
+      <span class="q"><b>Marcory</b> — Zone 4, Biétry</span>
+      <span class="q"><b>Bingerville</b> — le pari de demain</span>
+      <span class="q"><b>Assinie</b> — résidences secondaires</span>
+      <span class="q"><b>Grand-Bassam</b> — charme historique</span>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <span class="eyebrow" style="color:var(--sand)">Contact</span>
+      <h2 style="margin-top:14px">Un projet immobilier ?<br><i>Parlons-en simplement.</i></h2>
+      <p>Acheteur, vendeur ou propriétaire à distance : décrivez votre besoin, nous vous répondons sous 24 heures avec des options concrètes.</p>
+    </div>
+    <div class="c-list">
+      <div class="c-item"><b>WhatsApp — réponse rapide</b><span>+225 05 XX XX XX XX</span></div>
+      <div class="c-item"><b>Email</b><span>contact@lagune-pierre.ci</span></div>
+      <div class="c-item"><b>Agence</b><span>Cocody Riviera 3, Boulevard Arsène Usher Assouan</span></div>
+      <div class="c-item"><b>Diaspora</b><span>Visites en visio &amp; dossiers numériques complets</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer>
+    <span>© 2026 Lagune &amp; Pierre — Agence immobilière, Libreville. Site de démonstration.</span>
+    <span>Conçu par Ivindo Studio</span>
+  </footer>
+</div>
+
+</body>
+</html>
+
+</script>
+<script type="text/plain" id="src-hotel">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Palmes d'Assinie — Hôtel boutique entre lagune et océan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --palm:#16352A;
+  --palm-deep:#0D231B;
+  --shell:#F6F1E7;
+  --amber:#D9A441;
+  --water:#7FB6A4;
+  --ink:#20302A;
+  --muted:#5F7068;
+  --line:#E3DCCC;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{font-family:'Jost',system-ui,sans-serif;background:var(--shell);color:var(--ink);line-height:1.65;font-weight:400}
+h1,h2,h3,.disp{font-family:'Marcellus',Georgia,serif;font-weight:400;letter-spacing:.01em}
+a{color:inherit}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--amber);font-weight:500}
+
+.demo-ribbon{background:var(--palm-deep);color:#fff;font-size:12.5px;text-align:center;padding:8px 16px}
+.demo-ribbon a{color:var(--amber);font-weight:500}
+
+nav{position:absolute;top:36px;left:0;right:0;z-index:50}
+nav.solid{position:sticky;top:0;background:var(--shell);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:'Marcellus',serif;font-size:20px;color:#fff;text-decoration:none;letter-spacing:.05em}
+.nav-links{display:flex;gap:30px;list-style:none;font-size:13.5px;letter-spacing:.06em;text-transform:uppercase}
+.nav-links a{text-decoration:none;color:rgba(255,255,255,.85);transition:color .2s}
+.nav-links a:hover{color:var(--amber)}
+.nav-cta{border:1px solid var(--amber);color:var(--amber);padding:10px 22px;text-decoration:none;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;transition:all .2s}
+.nav-cta:hover{background:var(--amber);color:var(--palm-deep)}
+@media(max-width:840px){.nav-links{display:none}}
+
+/* Hero — crépuscule lagune */
+header{
+  min-height:92vh;display:flex;align-items:center;position:relative;color:#fff;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% 108%, rgba(217,164,65,.5) 0%, transparent 60%),
+    linear-gradient(180deg,#0D231B 0%,#16352A 38%,#2C5D4A 72%,#54806B 100%);
+}
+header::after{content:"";position:absolute;left:0;right:0;bottom:0;height:120px;
+  background:linear-gradient(180deg,transparent,rgba(13,35,27,.55));}
+.hero{position:relative;z-index:2;width:100%;padding:130px 0 110px;text-align:center}
+.hero .eyebrow{color:var(--amber)}
+.hero h1{font-size:clamp(42px,6.6vw,80px);line-height:1.06;margin-top:20px;color:var(--shell)}
+.hero p{margin:22px auto 0;font-size:17.5px;color:#D6E3DB;max-width:56ch;font-weight:300}
+.hero-ctas{margin-top:36px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:15px 32px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;transition:transform .15s,background .2s,color .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-amber{background:var(--amber);color:var(--palm-deep);font-weight:500}
+.btn-ghost{border:1px solid rgba(246,241,231,.5);color:var(--shell)}
+.hero-strip{position:relative;z-index:2;margin-top:64px;display:flex;justify-content:center;gap:0;flex-wrap:wrap}
+.hs{padding:0 34px;border-right:1px solid rgba(246,241,231,.25);text-align:center}
+.hs:last-child{border-right:none}
+.hs b{font-family:'Marcellus',serif;font-size:22px;color:var(--amber);display:block}
+.hs small{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#BFD2C8}
+@media(max-width:700px){.hs{border-right:none;padding:8px 0}}
+
+section{padding:96px 0}
+.sec-head{text-align:center;max-width:640px;margin:0 auto 56px}
+.sec-head h2{font-size:clamp(28px,3.8vw,44px);margin-top:16px;line-height:1.15}
+.sec-head p{margin-top:14px;color:var(--muted);font-weight:300;font-size:16.5px}
+
+/* Chambres */
+.rooms{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.room{background:#fff;border:1px solid var(--line);transition:transform .18s,box-shadow .2s}
+.room:hover{transform:translateY(-5px);box-shadow:0 22px 48px rgba(22,53,42,.14)}
+.room .ph{height:210px;position:relative}
+.r-1{background:linear-gradient(160deg,#1C4234 0%,#3E7359 60%,#D9A441 155%)}
+.r-2{background:linear-gradient(160deg,#143328 0%,#2C5D4A 55%,#7FB6A4 150%)}
+.r-3{background:linear-gradient(160deg,#0D231B 0%,#1F4A3A 50%,#C89A54 150%)}
+.room .ph::after{content:"";position:absolute;inset:auto 0 0 0;height:52px;
+  background:radial-gradient(ellipse 70% 100% at 50% 100%, rgba(246,241,231,.35), transparent 70%)}
+.room .info{padding:26px 26px 30px;text-align:center}
+.room h3{font-size:21px}
+.room .cap{margin-top:8px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.room p{margin-top:12px;font-size:14.5px;color:var(--muted);font-weight:300}
+.room .tarif{margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
+.room .tarif b{font-family:'Marcellus',serif;font-size:23px;color:var(--palm)}
+.room .tarif small{display:block;font-size:12px;color:var(--muted);letter-spacing:.06em;margin-top:2px}
+@media(max-width:920px){.rooms{grid-template-columns:1fr}}
+
+/* Expériences */
+#experiences{background:var(--palm);color:var(--shell)}
+#experiences .sec-head p{color:#AFC6BA}
+.exps{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(246,241,231,.14);border:1px solid rgba(246,241,231,.14)}
+.exp{background:var(--palm);padding:36px 30px;text-align:center}
+.exp .glyph{font-family:'Marcellus',serif;font-size:30px;color:var(--amber)}
+.exp h3{margin-top:14px;font-size:19px;color:var(--shell)}
+.exp p{margin-top:10px;font-size:14px;color:#AFC6BA;font-weight:300}
+@media(max-width:880px){.exps{grid-template-columns:1fr}}
+
+/* Avis */
+.quote{max-width:760px;margin:0 auto;text-align:center}
+.quote blockquote{font-family:'Marcellus',serif;font-size:clamp(21px,3vw,28px);line-height:1.45;color:var(--palm)}
+.quote cite{display:block;margin-top:22px;font-style:normal;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.quote .stars{color:var(--amber);letter-spacing:.3em;margin-bottom:20px;font-size:15px}
+
+/* Réservation */
+#reserver{background:linear-gradient(180deg,var(--shell) 0%,#EFE7D6 100%)}
+.resa-card{background:#fff;border:1px solid var(--line);max-width:860px;margin:0 auto;padding:52px;display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.resa-card h2{font-size:clamp(26px,3.4vw,36px);line-height:1.2}
+.resa-card p{margin-top:14px;color:var(--muted);font-weight:300}
+.resa-list{display:grid;gap:13px}
+.resa-item{border:1px solid var(--line);padding:17px 20px;display:flex;gap:14px;align-items:center;font-size:15px}
+.resa-item .k{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;background:var(--palm);color:var(--shell);padding:6px 10px;flex-shrink:0}
+.resa-item.wa .k{background:#1FA855}
+@media(max-width:820px){.resa-card{grid-template-columns:1fr;padding:34px 26px}}
+
+footer{padding:32px 0 42px;font-size:13px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+
+<div class="demo-ribbon">Site de démonstration réalisé par Ivindo Studio</div>
+
+<header>
+  <nav>
+    <div class="wrap nav-inner">
+      <a class="logo" href="#">PALMES D'ASSINIE</a>
+      <ul class="nav-links">
+        <li><a href="#chambres">Chambres</a></li>
+        <li><a href="#experiences">Expériences</a></li>
+        <li><a href="#reserver">Réserver</a></li>
+      </ul>
+      <a class="nav-cta" href="#reserver">Réserver un séjour</a>
+    </div>
+  </nav>
+  <div class="wrap hero">
+    <span class="eyebrow">Assinie-Mafia — Gabon</span>
+    <h1>Entre lagune et océan,<br>le temps ralentit.</h1>
+    <p>Un hôtel boutique de douze chambres posé sur la presqu'île d'Assinie. Réveil face à la lagune, déjeuner les pieds dans le sable, soirées au son des vagues.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-amber" href="#reserver">Vérifier les disponibilités</a>
+      <a class="btn btn-ghost" href="#chambres">Découvrir les chambres</a>
+    </div>
+    <div class="hero-strip">
+      <div class="hs"><b>12</b><small>chambres seulement</small></div>
+      <div class="hs"><b>80 m</b><small>entre lagune &amp; océan</small></div>
+      <div class="hs"><b>1h30</b><small>d'Libreville par la route</small></div>
+    </div>
+  </div>
+</header>
+
+<section id="chambres">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Les chambres</span>
+      <h2>Trois manières de séjourner, une même douceur.</h2>
+      <p>Toutes nos chambres incluent le petit-déjeuner, la climatisation, le Wi-Fi et l'accès direct à la plage privée.</p>
+    </div>
+    <div class="rooms">
+      <div class="room">
+        <div class="ph r-1"></div>
+        <div class="info">
+          <h3>Chambre Lagune</h3>
+          <div class="cap">2 personnes · 28 m²</div>
+          <p>Vue directe sur la lagune Aby, terrasse privée et hamac. Le lever de soleil depuis votre lit.</p>
+          <div class="tarif"><b>85 000 FCFA</b><small>par nuit, petit-déjeuner inclus</small></div>
+        </div>
+      </div>
+      <div class="room">
+        <div class="ph r-2"></div>
+        <div class="info">
+          <h3>Suite Océan</h3>
+          <div class="cap">2–3 personnes · 42 m²</div>
+          <p>Salon séparé, douche extérieure sous les cocotiers, et le bruit des vagues pour seule horloge.</p>
+          <div class="tarif"><b>140 000 FCFA</b><small>par nuit, petit-déjeuner inclus</small></div>
+        </div>
+      </div>
+      <div class="room">
+        <div class="ph r-3"></div>
+        <div class="info">
+          <h3>Villa Presqu'île</h3>
+          <div class="cap">4–6 personnes · 95 m²</div>
+          <p>Deux chambres, piscine privative et majordome dédié. Pour les familles et les célébrations.</p>
+          <div class="tarif"><b>250 000 FCFA</b><small>par nuit, petit-déjeuner inclus</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experiences">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Expériences</span>
+      <h2 style="color:var(--shell)">Vos journées, écrites par la lagune.</h2>
+      <p>Chaque expérience se réserve à la réception, la veille pour le lendemain.</p>
+    </div>
+    <div class="exps">
+      <div class="exp">
+        <span class="glyph">~</span>
+        <h3>Balade en pirogue au couchant</h3>
+        <p>Deux heures sur la lagune Aby avec un piroguier du village, entre palétuviers et villages de pêcheurs.</p>
+      </div>
+      <div class="exp">
+        <span class="glyph">✳</span>
+        <h3>Table du récif</h3>
+        <p>Poisson du jour grillé, attiéké maison et jus de gingembre frais, servis les pieds dans le sable.</p>
+      </div>
+      <div class="exp">
+        <span class="glyph">◦</span>
+        <h3>Excursion Grand-Bassam</h3>
+        <p>La ville historique classée UNESCO à 45 minutes : architecture coloniale, ateliers d'artisans, musée du costume.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap quote">
+    <div class="stars" aria-label="5 étoiles">★ ★ ★ ★ ★</div>
+    <blockquote>« Nous sommes venus pour un week-end, nous avons prolongé deux fois. Le personnel connaît votre prénom dès le premier soir. »</blockquote>
+    <cite>Aïcha &amp; Jean-Marc — séjour de mars 2026</cite>
+  </div>
+</section>
+
+<section id="reserver">
+  <div class="wrap">
+    <div class="resa-card">
+      <div>
+        <span class="eyebrow">Réservation</span>
+        <h2 style="margin-top:14px">Réservez en direct, au meilleur tarif garanti.</h2>
+        <p>Envoyez vos dates sur WhatsApp : confirmation sous 2 heures en journée. Acompte de 30% par mobile money ou virement.</p>
+      </div>
+      <div class="resa-list">
+        <div class="resa-item wa"><span class="k">WhatsApp</span> +225 07 XX XX XX XX</div>
+        <div class="resa-item"><span class="k">Tél</span> +225 27 XX XX XX XX</div>
+        <div class="resa-item"><span class="k">Email</span> sejour@palmes-assinie.ci</div>
+        <div class="resa-item"><span class="k">Adresse</span> Presqu'île d'Assinie-Mafia, route de la Passe</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer>
+    <span>© 2026 Palmes d'Assinie — Hôtel boutique. Site de démonstration.</span>
+    <span>Conçu par Ivindo Studio</span>
+  </footer>
+</div>
+
+</body>
+</html>
+
+</script>
+<script type="text/plain" id="src-agro">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Éburnia Agro Export — Cacao, anacarde &amp; fruits séchés de Gabon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cacao:#38251A;
+  --cacao-deep:#241710;
+  --leaf:#5B8C42;
+  --leaf-deep:#3E6B2C;
+  --kraft:#FBF8F2;
+  --husk:#E8DFCE;
+  --ink:#2A2019;
+  --muted:#6E6155;
+  --line:#E2D8C8;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{font-family:'Work Sans',system-ui,sans-serif;background:var(--kraft);color:var(--ink);line-height:1.65}
+h1,h2,h3,.slab{font-family:'Zilla Slab',Georgia,serif;font-weight:600;letter-spacing:0}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+:focus-visible{outline:3px solid var(--leaf);outline-offset:3px}
+.en{display:block;font-family:'Work Sans',sans-serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--leaf);font-weight:600;margin-top:6px}
+.eyebrow{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--leaf-deep);font-weight:600}
+
+.demo-ribbon{background:var(--cacao-deep);color:#fff;font-size:12.5px;text-align:center;padding:8px 16px}
+.demo-ribbon a{color:#C9E0B4;font-weight:600}
+
+nav{background:var(--kraft);border-bottom:2px solid var(--cacao);position:sticky;top:0;z-index:50}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:'Zilla Slab',serif;font-weight:700;font-size:20px;text-decoration:none;color:var(--cacao);letter-spacing:.02em}
+.logo span{color:var(--leaf-deep)}
+.nav-links{display:flex;gap:28px;list-style:none;font-size:14px;font-weight:500}
+.nav-links a{text-decoration:none;color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--cacao)}
+.nav-cta{background:var(--cacao);color:var(--kraft);padding:11px 22px;text-decoration:none;font-size:13.5px;font-weight:600;transition:background .2s}
+.nav-cta:hover{background:var(--cacao-deep)}
+@media(max-width:860px){.nav-links{display:none}}
+
+/* Hero */
+header{background:var(--cacao-deep);color:var(--kraft);position:relative;overflow:hidden}
+header::before{content:"";position:absolute;inset:0;opacity:.08;
+  background:repeating-linear-gradient(-45deg,transparent 0 22px,var(--kraft) 22px 23px)}
+.hero{position:relative;padding:100px 0 84px;display:grid;grid-template-columns:1.2fr .8fr;gap:52px;align-items:center}
+.hero h1{font-size:clamp(38px,5.2vw,60px);line-height:1.08;font-weight:700;color:var(--kraft)}
+.hero h1 em{font-style:normal;color:#A8CE8C}
+.hero .sub-en{margin-top:12px;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:#A8CE8C;font-weight:600}
+.hero p{margin-top:20px;color:#D8CBBB;font-size:16.5px;max-width:52ch}
+.hero-ctas{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 28px;font-weight:600;font-size:14px;text-decoration:none;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-leaf{background:var(--leaf);color:#fff}
+.btn-o{border:1.5px solid rgba(251,248,242,.4);color:var(--kraft)}
+.hero-stats{display:grid;gap:14px}
+.hstat{border:1.5px dashed rgba(251,248,242,.35);padding:20px 22px}
+.hstat b{font-family:'Zilla Slab',serif;font-size:30px;font-weight:700;color:#A8CE8C;display:block;line-height:1.1}
+.hstat small{color:#C9BCAB;font-size:13px}
+.hstat .en{color:#8FA97D;margin-top:2px;font-size:10.5px}
+@media(max-width:900px){.hero{grid-template-columns:1fr;padding:72px 0 60px}}
+
+section{padding:88px 0}
+.sec-head{max-width:660px;margin-bottom:48px}
+.sec-head h2{font-size:clamp(28px,3.6vw,42px);margin-top:12px;line-height:1.15;color:var(--cacao)}
+.sec-head p{margin-top:14px;color:var(--muted)}
+
+/* Produits — étiquettes de caisse */
+.produits{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.prod{background:#fff;border:2px solid var(--cacao);position:relative}
+.prod .stamp{position:absolute;top:14px;right:14px;border:1.5px solid var(--leaf-deep);color:var(--leaf-deep);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 9px;transform:rotate(4deg);background:rgba(255,255,255,.85)}
+.prod .ph{height:170px}
+.p-cacao{background:linear-gradient(155deg,#241710 0%,#4A2F1E 55%,#8A5B33 140%)}
+.p-cajou{background:linear-gradient(155deg,#3E2E1C 0%,#6E5530 55%,#C9A25E 145%)}
+.p-mangue{background:linear-gradient(155deg,#4A3313 0%,#8A6420 50%,#D9A441 140%)}
+.prod .info{padding:24px 24px 26px;border-top:2px solid var(--cacao)}
+.prod .orig{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--leaf-deep);font-weight:700}
+.prod h3{margin-top:8px;font-size:22px;font-weight:700;color:var(--cacao)}
+.prod h3 .en{margin-top:2px}
+.prod ul{margin-top:14px;list-style:none;font-size:13.5px;color:var(--muted);display:grid;gap:7px}
+.prod li{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dotted var(--line);padding-bottom:6px}
+.prod li b{color:var(--ink);font-weight:600;text-align:right}
+@media(max-width:920px){.produits{grid-template-columns:1fr}}
+
+/* Traçabilité */
+#tracabilite{background:var(--husk)}
+.certs{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.cert{background:var(--kraft);border:1.5px dashed var(--cacao);padding:26px 22px;text-align:center}
+.cert b{font-family:'Zilla Slab',serif;font-size:17px;font-weight:700;color:var(--cacao);display:block}
+.cert small{display:block;margin-top:8px;font-size:12.5px;color:var(--muted);line-height:1.5}
+@media(max-width:900px){.certs{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.certs{grid-template-columns:1fr}}
+
+/* Process */
+.chain{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:2px solid var(--cacao)}
+.link{padding:28px 24px;border-right:2px solid var(--cacao);background:#fff}
+.link:last-child{border-right:none}
+.link .step{font-family:'Zilla Slab',serif;font-weight:700;color:var(--leaf-deep);font-size:14px;letter-spacing:.1em}
+.link h3{margin-top:10px;font-size:17px;font-weight:700;color:var(--cacao)}
+.link p{margin-top:8px;font-size:13.5px;color:var(--muted)}
+@media(max-width:900px){.chain{grid-template-columns:1fr}.link{border-right:none;border-bottom:2px solid var(--cacao)}.link:last-child{border-bottom:none}}
+
+/* Contact */
+#contact{background:var(--cacao-deep);color:var(--kraft)}
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.contact-grid h2{font-size:clamp(30px,4.2vw,48px);line-height:1.1;color:var(--kraft)}
+.contact-grid h2 em{font-style:normal;color:#A8CE8C}
+.contact-grid p{margin-top:16px;color:#D8CBBB}
+.c-list{display:grid;gap:13px}
+.c-item{border:1.5px dashed rgba(251,248,242,.35);padding:18px 20px;font-size:15px;display:flex;gap:14px;align-items:center}
+.c-item .k{background:var(--leaf);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 10px;flex-shrink:0}
+@media(max-width:860px){.contact-grid{grid-template-columns:1fr}}
+
+footer{background:var(--cacao-deep);color:#9C8E7E;font-size:13px;padding:26px 0 34px;border-top:1px solid #3E2E20}
+.f-inner{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+
+<div class="demo-ribbon">Site de démonstration réalisé par Ivindo Studio</div>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="logo" href="#">ÉBURNIA <span>AGRO EXPORT</span></a>
+    <ul class="nav-links">
+      <li><a href="#produits">Produits</a></li>
+      <li><a href="#tracabilite">Traçabilité</a></li>
+      <li><a href="#process">Notre chaîne</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="#contact">Demander une cotation</a>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap hero">
+    <div>
+      <span class="eyebrow" style="color:#A8CE8C">Négoce &amp; export agricole — Libreville / Port-Gentil</span>
+      <h1 style="margin-top:16px">Du verger gabonais<br>aux marchés <em>du monde.</em></h1>
+      <div class="sub-en">From Ivorian orchards to world markets</div>
+      <p>Cacao, anacarde et fruits séchés, sourcés auprès de coopératives partenaires, contrôlés lot par lot et expédiés depuis les ports d'Libreville et de Port-Gentil. Documentation export complète, traçabilité parcelle.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-leaf" href="#produits">Voir les produits</a>
+        <a class="btn btn-o" href="#contact">Request a quote (EN)</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><b>4 500 t</b><small>exportées par an</small><span class="en">exported yearly</span></div>
+      <div class="hstat"><b>12 pays</b><small>livrés en Europe, Asie &amp; Amérique</small><span class="en">countries served</span></div>
+      <div class="hstat"><b>28</b><small>coopératives partenaires</small><span class="en">partner cooperatives</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="produits">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Nos produits · Our products</span>
+      <h2>Trois filières, une même exigence de qualité.</h2>
+      <p>Fiches techniques complètes et échantillons disponibles sur demande. Conditionnement conteneur 20' / 40'.</p>
+    </div>
+    <div class="produits">
+      <div class="prod">
+        <span class="stamp">Grade I</span>
+        <div class="ph p-cacao"></div>
+        <div class="info">
+          <span class="orig">Origine Port-Gentil · Soubré</span>
+          <h3>Fèves de cacao<span class="en">Cocoa beans</span></h3>
+          <ul>
+            <li>Fermentation <b>5–6 jours, contrôlée</b></li>
+            <li>Humidité <b>≤ 7,5%</b></li>
+            <li>Fèves défectueuses <b>&lt; 3%</b></li>
+            <li>Capacité <b>25 t / conteneur</b></li>
+          </ul>
+        </div>
+      </div>
+      <div class="prod">
+        <span class="stamp">W320 / W240</span>
+        <div class="ph p-cajou"></div>
+        <div class="info">
+          <span class="orig">Origine Korhogo · Bondoukou</span>
+          <h3>Noix de cajou<span class="en">Cashew nuts</span></h3>
+          <ul>
+            <li>Formats <b>brutes &amp; amandes</b></li>
+            <li>KOR (rendement) <b>≥ 48 lbs</b></li>
+            <li>Humidité <b>≤ 8%</b></li>
+            <li>Récolte <b>février – juin</b></li>
+          </ul>
+        </div>
+      </div>
+      <div class="prod">
+        <span class="stamp">Sans sulfites</span>
+        <div class="ph p-mangue"></div>
+        <div class="info">
+          <span class="orig">Origine Korhogo · variété Kent</span>
+          <h3>Mangue séchée<span class="en">Dried mango</span></h3>
+          <ul>
+            <li>Séchage <b>solaire basse température</b></li>
+            <li>Additifs <b>aucun — 100% fruit</b></li>
+            <li>Conditionnement <b>vrac 5 kg / sachets</b></li>
+            <li>Certifiable <b>Bio UE sur demande</b></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tracabilite">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Traçabilité &amp; conformité · Compliance</span>
+      <h2>Prêts pour les exigences des marchés européens.</h2>
+      <p>Chaque lot est documenté de la parcelle au port. Nos acheteurs reçoivent un dossier de traçabilité complet avec chaque expédition.</p>
+    </div>
+    <div class="certs">
+      <div class="cert"><b>Conformité EUDR</b><small>Géolocalisation GPS des parcelles et attestation zéro-déforestation pour chaque lot cacao.</small></div>
+      <div class="cert"><b>Rainforest Alliance</b><small>Coopératives partenaires certifiées, primes reversées documentées.</small></div>
+      <div class="cert"><b>Contrôle qualité CCC</b><small>Lots contrôlés selon les standards du Conseil du Café-Cacao avant empotage.</small></div>
+      <div class="cert"><b>Documentation export</b><small>Certificats d'origine, phytosanitaires et connaissements gérés par notre équipe.</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Notre chaîne · Our chain</span>
+      <h2>Quatre maillons, zéro approximation.</h2>
+    </div>
+    <div class="chain">
+      <div class="link">
+        <span class="step">01 — SOURCING</span>
+        <h3>Coopératives partenaires</h3>
+        <p>Relations directes et contrats de campagne avec 28 coopératives dans les bassins de production.</p>
+      </div>
+      <div class="link">
+        <span class="step">02 — QUALITÉ</span>
+        <h3>Contrôle lot par lot</h3>
+        <p>Échantillonnage, cut-test et mesure d'humidité à réception, avant tout conditionnement.</p>
+      </div>
+      <div class="link">
+        <span class="step">03 — LOGISTIQUE</span>
+        <h3>Empotage &amp; expédition</h3>
+        <p>Entrepôts sous douane à Libreville et Port-Gentil, empotage supervisé, photos à chaque étape.</p>
+      </div>
+      <div class="link">
+        <span class="step">04 — SUIVI</span>
+        <h3>Documentation &amp; livraison</h3>
+        <p>Jeu documentaire complet transmis sous 72h après embarquement, suivi jusqu'au port d'arrivée.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <span class="eyebrow" style="color:#A8CE8C">Contact · Get in touch</span>
+      <h2 style="margin-top:14px">Une cotation sous <em>48 heures.</em></h2>
+      <p>Indiquez produit, volume, destination et incoterm souhaité (FOB, CIF, CFR) : notre équipe commerciale vous répond en français ou en anglais. We reply in English within 48 hours.</p>
+    </div>
+    <div class="c-list">
+      <div class="c-item"><span class="k">Export</span> export@eburnia-agro.ci</div>
+      <div class="c-item"><span class="k">WhatsApp</span> +225 07 XX XX XX XX (FR / EN)</div>
+      <div class="c-item"><span class="k">Tél</span> +225 27 XX XX XX XX</div>
+      <div class="c-item"><span class="k">Bureaux</span> Treichville, zone portuaire — Libreville · Annexe Port-Gentil</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap f-inner">
+    <span>© 2026 Éburnia Agro Export — RCCM CI-ABJ-XX-XXXX. Site de démonstration.</span>
+    <span>Conçu par Ivindo Studio</span>
+  </div>
+</footer>
+
+</body>
+</html>
+
+</script>
+<script type="text/plain" id="src-cabinet">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Koné &amp; Associés — Société d'avocats, Barreau de Gabon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --oxblood:#5E2028;
+  --oxblood-deep:#41161C;
+  --ivory:#F7F4EE;
+  --graphite:#23252B;
+  --gold:#B9975B;
+  --ink:#26272B;
+  --muted:#66676D;
+  --line:#E4E0D6;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{font-family:'Public Sans',system-ui,sans-serif;background:var(--ivory);color:var(--ink);line-height:1.7}
+h1,h2,h3,.gar{font-family:'EB Garamond',Georgia,serif;font-weight:500;letter-spacing:.005em}
+a{color:inherit}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.eyebrow{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--oxblood);font-weight:600}
+.rule{width:52px;height:1px;background:var(--gold);margin-top:16px}
+
+.demo-ribbon{background:var(--graphite);color:#fff;font-size:12.5px;text-align:center;padding:8px 16px}
+.demo-ribbon a{color:var(--gold);font-weight:600}
+
+nav{background:var(--ivory);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:76px}
+.logo{font-family:'EB Garamond',serif;font-size:21px;text-decoration:none;color:var(--graphite)}
+.logo b{font-weight:600;color:var(--oxblood)}
+.nav-links{display:flex;gap:32px;list-style:none;font-size:13px;letter-spacing:.04em;font-weight:500}
+.nav-links a{text-decoration:none;color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--oxblood)}
+.nav-cta{border:1px solid var(--oxblood);color:var(--oxblood);padding:11px 24px;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.03em;transition:all .2s}
+.nav-cta:hover{background:var(--oxblood);color:var(--ivory)}
+@media(max-width:860px){.nav-links{display:none}}
+
+/* Hero */
+header{background:var(--ivory);border-bottom:1px solid var(--line)}
+.hero{padding:110px 0 92px;display:grid;grid-template-columns:1.25fr .75fr;gap:60px;align-items:center}
+.hero h1{font-size:clamp(38px,5vw,58px);line-height:1.14;color:var(--graphite);font-weight:400}
+.hero h1 i{font-style:italic;color:var(--oxblood)}
+.hero p{margin-top:22px;color:var(--muted);font-size:16.5px;max-width:52ch}
+.hero-ctas{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 30px;font-weight:600;font-size:13.5px;letter-spacing:.03em;text-decoration:none;transition:all .2s}
+.btn-ox{background:var(--oxblood);color:var(--ivory)}
+.btn-ox:hover{background:var(--oxblood-deep)}
+.btn-line{border:1px solid var(--graphite);color:var(--graphite)}
+.btn-line:hover{background:var(--graphite);color:var(--ivory)}
+.hero-side{border-left:1px solid var(--line);padding-left:44px;display:grid;gap:30px}
+.hs b{font-family:'EB Garamond',serif;font-size:34px;font-weight:500;color:var(--oxblood);display:block;line-height:1.1}
+.hs small{color:var(--muted);font-size:13px;letter-spacing:.03em}
+@media(max-width:880px){.hero{grid-template-columns:1fr;padding:76px 0 60px}.hero-side{border-left:none;padding-left:0;border-top:1px solid var(--line);padding-top:30px;grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.hero-side{grid-template-columns:1fr}}
+
+section{padding:92px 0}
+.sec-head{max-width:600px;margin-bottom:52px}
+.sec-head h2{font-size:clamp(27px,3.5vw,40px);margin-top:16px;line-height:1.2;color:var(--graphite);font-weight:400}
+.sec-head p{margin-top:14px;color:var(--muted)}
+
+/* Domaines — index juridique */
+.domaines{display:grid;gap:0;border-top:1px solid var(--graphite)}
+.dom{display:grid;grid-template-columns:110px 1fr 1.2fr;gap:32px;padding:34px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.dom .num{font-family:'EB Garamond',serif;font-size:26px;color:var(--gold);font-style:italic}
+.dom h3{font-size:23px;color:var(--graphite);font-weight:500}
+.dom p{font-size:14.5px;color:var(--muted)}
+.dom p b{color:var(--ink);font-weight:600}
+@media(max-width:820px){.dom{grid-template-columns:1fr;gap:8px;padding:26px 0}}
+
+/* Équipe */
+#equipe{background:var(--graphite);color:var(--ivory)}
+#equipe .sec-head h2{color:var(--ivory)}
+#equipe .sec-head p{color:#A9AAB0}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.avocat{border:1px solid #3A3C44;padding:34px 28px;text-align:center}
+.avocat .init{width:74px;height:74px;border-radius:50%;border:1px solid var(--gold);color:var(--gold);display:grid;place-items:center;margin:0 auto;font-family:'EB Garamond',serif;font-size:24px}
+.avocat h3{margin-top:18px;font-size:20px;color:var(--ivory);font-weight:500}
+.avocat .role{margin-top:6px;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.avocat p{margin-top:12px;font-size:13.5px;color:#A9AAB0}
+@media(max-width:880px){.team{grid-template-columns:1fr}}
+
+/* Approche */
+.approche{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--line);background:#fff}
+.app{padding:36px 34px;border-bottom:1px solid var(--line)}
+.app:nth-child(odd){border-right:1px solid var(--line)}
+.app:nth-last-child(-n+2){border-bottom:none}
+.app b{font-family:'EB Garamond',serif;font-size:20px;font-weight:500;color:var(--oxblood);display:block}
+.app p{margin-top:10px;font-size:14.5px;color:var(--muted)}
+@media(max-width:760px){.approche{grid-template-columns:1fr}.app:nth-child(odd){border-right:none}.app{border-bottom:1px solid var(--line)!important}.app:last-child{border-bottom:none!important}}
+
+/* Contact */
+#contact .card{background:#fff;border:1px solid var(--line);padding:56px;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+#contact h2{font-size:clamp(26px,3.4vw,38px);line-height:1.2;font-weight:400}
+#contact h2 i{font-style:italic;color:var(--oxblood)}
+#contact p{margin-top:14px;color:var(--muted)}
+.c-list{display:grid;gap:0;border:1px solid var(--line)}
+.c-item{padding:19px 22px;border-bottom:1px solid var(--line);font-size:15px}
+.c-item:last-child{border-bottom:none}
+.c-item b{display:block;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--oxblood);margin-bottom:5px;font-weight:600}
+@media(max-width:840px){#contact .card{grid-template-columns:1fr;padding:36px 26px}}
+
+footer{padding:30px 0 40px;font-size:13px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+
+<div class="demo-ribbon">Site de démonstration réalisé par Ivindo Studio</div>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="logo" href="#"><b>KONÉ</b> &amp; ASSOCIÉS</a>
+    <ul class="nav-links">
+      <li><a href="#domaines">Domaines d'intervention</a></li>
+      <li><a href="#equipe">Le cabinet</a></li>
+      <li><a href="#approche">Notre approche</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="#contact">Prendre rendez-vous</a>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap hero">
+    <div>
+      <span class="eyebrow">Société d'avocats — Barreau de Gabon</span>
+      <h1 style="margin-top:18px">La rigueur au service<br>de vos <i>décisions.</i></h1>
+      <p>Depuis 2005, Koné &amp; Associés conseille entreprises, investisseurs et particuliers en droit des affaires, droit foncier et contentieux. Un droit expliqué clairement, des honoraires convenus d'avance.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-ox" href="#contact">Prendre rendez-vous</a>
+        <a class="btn btn-line" href="#domaines">Nos domaines</a>
+      </div>
+    </div>
+    <div class="hero-side">
+      <div class="hs"><b>20 ans</b><small>d'exercice au Barreau</small></div>
+      <div class="hs"><b>6 avocats</b><small>dont 3 associés</small></div>
+      <div class="hs"><b>FR · EN</b><small>langues de travail</small></div>
+    </div>
+  </div>
+</header>
+
+<section id="domaines">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Domaines d'intervention</span>
+      <h2>Quatre pratiques, une même exigence.</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="domaines">
+      <div class="dom">
+        <span class="num">I.</span>
+        <h3>Droit des affaires &amp; sociétés</h3>
+        <p>Constitution de sociétés, pactes d'associés, contrats commerciaux, conformité <b>OHADA</b>. Nous sécurisons vos opérations, de la création à la cession.</p>
+      </div>
+      <div class="dom">
+        <span class="num">II.</span>
+        <h3>Droit immobilier &amp; foncier</h3>
+        <p>Vérification de titres, <b>ACD</b>, baux commerciaux et d'habitation, litiges fonciers. Le foncier gabonais exige de la méthode — nous l'apportons.</p>
+      </div>
+      <div class="dom">
+        <span class="num">III.</span>
+        <h3>Contentieux &amp; arbitrage</h3>
+        <p>Représentation devant les juridictions gabonaises et la <b>CCJA</b>, arbitrage commercial, recouvrement de créances et voies d'exécution.</p>
+      </div>
+      <div class="dom">
+        <span class="num">IV.</span>
+        <h3>Droit social</h3>
+        <p>Relations individuelles et collectives de travail, contrats, ruptures négociées, <b>restructurations</b> et contentieux prud'homal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="equipe">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" style="color:var(--gold)">Le cabinet</span>
+      <h2>Des associés qui plaident encore.</h2>
+      <p>Chaque dossier est suivi personnellement par un associé, du premier rendez-vous à la clôture.</p>
+    </div>
+    <div class="team">
+      <div class="avocat">
+        <div class="init">AK</div>
+        <h3>Me Amidou Koné</h3>
+        <div class="role">Associé fondateur</div>
+        <p>Droit des affaires et opérations de croissance. Ancien collaborateur d'un cabinet international à Paris.</p>
+      </div>
+      <div class="avocat">
+        <div class="init">FD</div>
+        <h3>Me Fatoumata Diomandé</h3>
+        <div class="role">Associée — Foncier</div>
+        <p>Référence du cabinet en droit foncier et immobilier, elle a sécurisé plus de 200 acquisitions à Libreville et en région.</p>
+      </div>
+      <div class="avocat">
+        <div class="init">SN</div>
+        <h3>Me Serge N'Dri</h3>
+        <div class="role">Associé — Contentieux</div>
+        <p>Plaideur devant les juridictions commerciales et la CCJA, spécialiste des procédures d'exécution OHADA.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="approche">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Notre approche</span>
+      <h2>Ce que nos clients savent avant de signer.</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="approche">
+      <div class="app"><b>Honoraires convenus d'avance</b><p>Convention d'honoraires écrite pour chaque dossier : forfait ou taux horaire, sans surprise en cours de route.</p></div>
+      <div class="app"><b>Confidentialité absolue</b><p>Secret professionnel strict, locaux dédiés aux rendez-vous, échanges sécurisés pour les dossiers sensibles.</p></div>
+      <div class="app"><b>Réponse sous 48 heures</b><p>Toute demande reçoit une réponse d'un avocat — pas d'un standard — sous deux jours ouvrés.</p></div>
+      <div class="app"><b>Clients internationaux</b><p>Accompagnement en français et en anglais des investisseurs et de la diaspora, rendez-vous en visioconférence.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="card">
+      <div>
+        <span class="eyebrow">Contact</span>
+        <h2 style="margin-top:16px">Une première consultation<br><i>pour y voir clair.</i></h2>
+        <p>Exposez votre situation en toute confidentialité : le cabinet vous indique la marche à suivre, les délais réalistes et le coût prévisible avant tout engagement.</p>
+      </div>
+      <div class="c-list">
+        <div class="c-item"><b>Téléphone</b>+225 27 XX XX XX XX</div>
+        <div class="c-item"><b>Email</b>contact@kone-associes.ci</div>
+        <div class="c-item"><b>Cabinet</b>Plateau, Avenue Delafosse — Immeuble XX, 3e étage, Libreville</div>
+        <div class="c-item"><b>Consultations</b>Sur rendez-vous, du lundi au vendredi, 8h30 – 17h30</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer>
+    <span>© 2026 Koné &amp; Associés — Société d'avocats. Site de démonstration.</span>
+    <span>Conçu par Ivindo Studio</span>
+  </footer>
+</div>
+
+</body>
+</html>
+
+</script>
+
+<script>
+(function(){
+  var overlay=document.getElementById('demo-overlay');
+  var frame=document.getElementById('demo-frame');
+  var title=document.getElementById('demo-title');
+  var closeBtn=document.getElementById('demo-close');
+  function open(id,label){
+    var src=document.getElementById('src-'+id);
+    if(!src)return;
+    frame.removeAttribute('src');
+    frame.srcdoc=src.textContent;
+    title.textContent=label||'';
+    overlay.classList.add('open');
+    document.body.style.overflow='hidden';
+    closeBtn.focus();
+  }
+  function openSrc(url,label){
+    frame.removeAttribute('srcdoc');
+    frame.src=url;
+    title.textContent=label||'';
+    overlay.classList.add('open');
+    document.body.style.overflow='hidden';
+    closeBtn.focus();
+  }
+  function close(){
+    overlay.classList.remove('open');
+    frame.srcdoc='';
+    frame.removeAttribute('src');
+    document.body.style.overflow='';
+  }
+  frame.addEventListener('load',function(){
+    try{
+      var doc=frame.contentDocument;
+      if(!doc)return;
+      var smooth=doc.defaultView.matchMedia&&doc.defaultView.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth';
+      doc.addEventListener('click',function(e){
+        var t=e.target;
+        var a=(t&&t.closest)?t.closest('a[href^="#"]'):null;
+        if(!a)return;
+        e.preventDefault();
+        var id=a.getAttribute('href').slice(1);
+        if(!id){doc.defaultView.scrollTo({top:0,behavior:smooth});return;}
+        var el=doc.getElementById(id);
+        if(el)el.scrollIntoView({behavior:smooth,block:'start'});
+      });
+    }catch(err){}
+  });
+  document.querySelectorAll('[data-demo]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      open(a.getAttribute('data-demo'),a.getAttribute('data-title'));
+    });
+  });
+  document.querySelectorAll('[data-src]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      openSrc(a.getAttribute('data-src'),a.getAttribute('data-title'));
+    });
+  });
+  closeBtn.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&overlay.classList.contains('open'))close();
+  });
+})();
+(function(){
+  var data=[
+    {src:'assets/pngs/01-synthese-direction.jpg',cap:'Synthèse direction — Effectifs, recouvrement et points à traiter, en un coup d’œil.'},
+    {src:'assets/pngs/02-finances.jpg',cap:'Tableau de bord finances — Encaissements du mois, impayés et relances à faire.'},
+    {src:'assets/pngs/03-fiche-eleve.jpg',cap:'Fiche élève — Scolarité, notes, assiduité, paiements et parents sur une seule page.'},
+    {src:'assets/pngs/04-guichet-caisse.jpg',cap:'Guichet caisse — Encaisser en 30 secondes : reste à payer, mensualités, reçu imprimé.'},
+    {src:'assets/pngs/05-saisie-notes.jpg',cap:'Saisie des notes — Les notes saisies alimentent les bulletins et l’espace des familles.'},
+    {src:'assets/pngs/06-espace-enseignant.jpg',cap:'Accueil enseignant — Le professeur voit ses classes, ses cours et ce qu’il a à faire.'},
+    {src:'assets/pngs/07-pointage-profs.jpg',cap:'Pointage des professeurs — Arrivées, départs et retards notés par le surveillant général.'},
+    {src:'assets/pngs/08-etats-imprimer.jpg',cap:'États à imprimer — Les états officiels de l’établissement, prêts pour le ministère.'},
+    {src:'assets/pngs/09-espace-parents.jpg',cap:'Espace parents (mobile) — Les parents suivent la scolarité depuis leur téléphone.'}
+  ];
+  var ov=document.getElementById('pngs-gallery');
+  if(!ov)return;
+  var img=document.getElementById('gal-img'),cap=document.getElementById('gal-caption'),cnt=document.getElementById('gal-count');
+  var i=0;
+  function show(n){i=(n+data.length)%data.length;img.src=data[i].src;img.alt=data[i].cap;cap.textContent=data[i].cap;cnt.textContent=(i+1)+' / '+data.length;}
+  function openG(){show(0);ov.classList.add('open');document.body.style.overflow='hidden';}
+  function closeG(){ov.classList.remove('open');img.removeAttribute('src');document.body.style.overflow='';}
+  document.querySelectorAll('[data-gallery="pngs"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();openG();});});
+  document.getElementById('gal-prev').addEventListener('click',function(){show(i-1);});
+  document.getElementById('gal-next').addEventListener('click',function(){show(i+1);});
+  document.getElementById('gal-close').addEventListener('click',closeG);
+  document.addEventListener('keydown',function(e){
+    if(!ov.classList.contains('open'))return;
+    if(e.key==='Escape')closeG();else if(e.key==='ArrowLeft')show(i-1);else if(e.key==='ArrowRight')show(i+1);
+  });
+})();
+</script>
+</body>
+</html>
