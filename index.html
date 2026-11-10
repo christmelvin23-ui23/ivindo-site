@@ -30,6 +30,12 @@ img{max-width:100%}
 .eyebrow::before{content:"";width:26px;height:2px;background:var(--maize)}
 :focus-visible{outline:3px solid var(--maize);outline-offset:3px}
 
+/* ---------- Bandeau promo ---------- */
+.promo-bar{display:block;background:#141C42;color:#fff;text-align:center;text-decoration:none;font-size:14px;line-height:1.4;padding:10px 16px}
+.promo-bar b{color:#F0B429;font-weight:600}
+.promo-bar span{text-decoration:underline;text-underline-offset:3px}
+.promo-bar:hover span{color:#F0B429}
+
 /* ---------- Nav ---------- */
 nav{position:sticky;top:0;z-index:50;background:rgba(244,246,248,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
@@ -383,6 +389,161 @@ header:hover #spot{opacity:1}
 #ivd-loader .ld:last-of-type{animation-delay:.72s}
 @keyframes ld-in{to{opacity:1}}
 @media (prefers-reduced-motion: reduce){#ivd-loader{display:none}}
+
+/* ============================================================
+   AFRO-FUTURISME — appareils animés, soleil, orbites, circuits
+   ============================================================ */
+.hero{grid-template-columns:1fr 1.05fr;gap:36px;padding:92px 24px 96px}
+.hero h1{font-size:clamp(36px,4.6vw,60px)}
+.hero-stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:38px}
+.hero-stats .stat{padding:14px 16px;animation:rise .85s cubic-bezier(.2,.7,.2,1) both}
+.hero-stats .stat b{font-size:20px}
+.hero-stats .stat small{font-size:12.5px}
+@media(max-width:900px){.hero{grid-template-columns:1fr;gap:28px;padding:64px 24px 56px}}
+@media(max-width:560px){.hero-stats{gap:8px}.hero-stats .stat{padding:12px}.hero-stats .stat b{font-size:15px}.hero-stats .stat small{font-size:11px}}
+
+/* Circuits lumineux en fond */
+.circuit{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.circuit .pulse{stroke-dasharray:70 930;stroke-dashoffset:1000;animation:pulse-run 9s linear infinite;filter:drop-shadow(0 0 4px rgba(240,180,41,.9))}
+@keyframes pulse-run{to{stroke-dashoffset:0}}
+
+/* Bande kente animée */
+.kente{height:10px;position:relative;z-index:2;
+  background:repeating-linear-gradient(90deg,#F0B429 0 30px,#141C42 30px 36px,#0F6E68 36px 54px,#141C42 54px 60px,#E8590C 60px 72px,#141C42 72px 78px,#FFFFFF 78px 82px,#141C42 82px 88px);
+  animation:kente-run 30s linear infinite}
+@keyframes kente-run{to{background-position:880px 0}}
+
+/* Composants appareils (chaque appareil est son propre repère) */
+.dev{width:100%}
+.laptop .lid{background:#0B0F1F;border-radius:2.6cqw 2.6cqw 0 0;padding:2.3cqw 2.3cqw 3.4cqw;
+  box-shadow:inset 0 0 0 .35cqw #3A4266,0 5cqw 9cqw -3cqw rgba(3,6,20,.75)}
+.laptop .screen{position:relative;aspect-ratio:16/10;overflow:hidden;border-radius:.6cqw;background:#fff}
+.laptop .base{position:relative;height:3.4cqw;margin:0 -7%;border-radius:0 0 4cqw 4cqw;
+  background:linear-gradient(180deg,#EEF0F6 0%,#C3C8D6 55%,#8E95AC 100%);box-shadow:0 3cqw 5cqw -2cqw rgba(3,6,20,.7)}
+.laptop .base::before{content:"";position:absolute;left:50%;top:0;width:16%;height:42%;transform:translateX(-50%);border-radius:0 0 1.5cqw 1.5cqw;background:#AEB4C6}
+.phone{position:relative;padding:4.2cqw;border-radius:16cqw;background:linear-gradient(150deg,#3A4266 0%,#0B0F1F 45%,#1B2140 100%);
+  box-shadow:0 8cqw 16cqw -5cqw rgba(3,6,20,.8),inset 0 0 0 .7cqw rgba(255,255,255,.14)}
+.phone .screen{position:relative;aspect-ratio:390/844;overflow:hidden;border-radius:12cqw;background:#fff}
+.phone.inset .screen{background:#0C1F1B;padding-top:13cqw}
+.phone.inset .screen img.fill{position:relative;height:100%}
+.phone .island{position:absolute;left:50%;top:7cqw;width:27%;height:7cqw;transform:translateX(-50%);border-radius:99px;background:#05070F;z-index:3}
+.screen img{position:absolute;left:0;top:0;width:100%;display:block}
+.screen img.fill{height:100%;object-fit:cover;object-position:top}
+
+/* Écrans vivants */
+@keyframes scr-site{0%,9%{transform:translateY(0)}38%,50%{transform:translateY(-34%)}80%,90%{transform:translateY(-73%)}100%{transform:translateY(0)}}
+@keyframes scr-mob{0%,10%{transform:translateY(0)}40%,52%{transform:translateY(-30%)}82%,92%{transform:translateY(-64%)}100%{transform:translateY(0)}}
+@keyframes swap{0%,42%{opacity:0}48%,86%{opacity:1}93%,100%{opacity:0}}
+@keyframes tap{0%,36%{opacity:0;transform:scale(.4)}40%{opacity:1;transform:scale(1)}46%,100%{opacity:0;transform:scale(1.7)}}
+@keyframes notif{0%,6%{opacity:0;transform:translateY(-40%) scale(.94)}12%,64%{opacity:1;transform:none}72%,100%{opacity:0;transform:translateY(-25%) scale(.96)}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.4cqw)}}
+.play .scr-site{animation:scr-site 18s cubic-bezier(.65,0,.35,1) infinite}
+.play .scr-mob{animation:scr-mob 16s cubic-bezier(.65,0,.35,1) infinite 1.2s}
+.play .swap{animation:swap 10s ease-in-out infinite}
+.swap{opacity:0}
+.tap{position:absolute;left:15%;top:30%;width:18%;aspect-ratio:1;margin:-9% 0 0 -9%;border-radius:50%;border:2px solid rgba(20,28,66,.6);background:rgba(20,28,66,.14);opacity:0;z-index:2}
+.play .tap{animation:tap 10s ease-out infinite}
+.notif{display:flex;align-items:center;gap:4.5cqw;padding:5cqw 5.5cqw;border-radius:8cqw;background:rgba(255,255,255,.97);color:#111827;
+  box-shadow:0 10cqw 20cqw -6cqw rgba(3,6,20,.65);opacity:0}
+.play .notif{animation:notif 10s cubic-bezier(.2,.7,.2,1) infinite}
+.n-ic{width:14cqw;height:14cqw;border-radius:4cqw;flex-shrink:0;background-color:#E8590C;
+  background-image:radial-gradient(circle at 50% 50%,#FFD43B 0 22%,#0F6E68 22% 33%,transparent 33%);background-size:50% 50%}
+.n-tx{display:flex;flex-direction:column;gap:1cqw;min-width:0;font-size:max(11px,5.2cqw);line-height:1.3}
+.n-hd{display:flex;justify-content:space-between;gap:3cqw;color:#6B7280;font-size:max(10px,4.6cqw)}
+.n-hd b{color:#111827;font-weight:600}
+.slot{position:absolute;container-type:inline-size}
+
+/* Scène du hero */
+.hv{position:relative;z-index:1;container-type:inline-size;aspect-ratio:1/.88;width:100%;perspective:1500px}
+.hv .scene{position:absolute;inset:0;transform-style:preserve-3d;
+  transform:rotateY(calc(var(--mx,0)*9deg)) rotateX(calc(var(--my,0)*-7deg));transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.hv .s-lap{left:9cqw;top:22cqw;width:74cqw;transform:translateZ(0)}
+.hv .s-ph2{left:0;top:42cqw;width:19cqw;transform:translateZ(50px)}
+.hv .s-ph1{left:71cqw;top:31cqw;width:27cqw;transform:translateZ(90px)}
+.hv .s-notif{left:50cqw;top:11cqw;width:46cqw;transform:translateZ(120px)}
+.hv .s-notif .notif{animation-delay:2.4s}
+.play .b1{animation:bob 7s ease-in-out infinite}
+.play .b2{animation:bob 6s ease-in-out infinite -2s}
+.play .b3{animation:bob 6.5s ease-in-out infinite -4s}
+.chip-f{position:absolute;display:inline-flex;align-items:center;gap:1.4cqw;padding:1.4cqw 2.6cqw;border-radius:99px;
+  background:rgba(20,28,66,.72);backdrop-filter:blur(6px);border:1px solid rgba(240,180,41,.45);color:#fff;
+  font-size:max(11px,2.5cqw);font-weight:600;white-space:nowrap;transform:translateZ(140px);box-shadow:0 10px 26px -10px rgba(0,0,0,.6)}
+.chip-f svg{width:max(13px,2.8cqw);height:max(13px,2.8cqw);fill:none;stroke:#F0B429;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.hv .f1{left:1cqw;top:13cqw}
+.hv .f2{left:22cqw;top:79cqw}
+.hv .f3{left:60cqw;top:92cqw}
+@keyframes bobz{0%,100%{transform:translateZ(140px) translateY(0)}50%{transform:translateZ(140px) translateY(-1.4cqw)}}
+/* Entrée des appareils */
+@keyframes dev-in{from{opacity:0;translate:0 8cqw}to{opacity:1;translate:0 0}}
+.hv .slot,.hv .chip-f{animation:dev-in 1s cubic-bezier(.2,.7,.2,1) both}
+.hv .s-lap{animation-delay:.35s}.hv .s-ph2{animation-delay:.55s}.hv .s-ph1{animation-delay:.7s}.hv .s-notif{animation-delay:.9s}
+.hv .f1{animation:dev-in 1s .95s both,bobz 5.5s ease-in-out infinite 2s}
+.hv .f2{animation:dev-in 1s 1.05s both,bobz 5.5s ease-in-out infinite 2.4s}
+.hv .f3{animation:dev-in 1s 1.15s both,bobz 5.5s ease-in-out infinite 2.8s}
+
+/* Soleil afro-futuriste + orbites */
+.sun{position:absolute;left:52cqw;top:30cqw;width:58cqw;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;
+  background:linear-gradient(180deg,#FFE08A 0%,#F0B429 45%,#E8590C 100%);opacity:.92;
+  -webkit-mask:linear-gradient(180deg,#000 0 52%,transparent 52% 55%,#000 55% 63%,transparent 63% 67%,#000 67% 74%,transparent 74% 79%,#000 79% 85%,transparent 85% 92%,#000 92%);
+          mask:linear-gradient(180deg,#000 0 52%,transparent 52% 55%,#000 55% 63%,transparent 63% 67%,#000 67% 74%,transparent 74% 79%,#000 79% 85%,transparent 85% 92%,#000 92%);
+  filter:drop-shadow(0 0 6cqw rgba(240,180,41,.55));animation:sun-breathe 7s ease-in-out infinite}
+@keyframes sun-breathe{0%,100%{opacity:.88}50%{opacity:1}}
+.orbits{position:absolute;left:52cqw;top:30cqw;width:112cqw;height:112cqw;transform:translate(-50%,-50%);overflow:visible;pointer-events:none}
+.orbits .o{transform-box:view-box;transform-origin:50% 50%}
+.orbits .o-kente{animation:spin-o 80s linear infinite}
+.orbits .o-tri{animation:spin-o 120s linear infinite reverse}
+.orbits .o-dots{animation:spin-o 36s linear infinite}
+.orbits .o-dia{animation:spin-o 160s linear infinite reverse}
+@keyframes spin-o{to{transform:rotate(360deg)}}
+@media(max-width:900px){.hv{max-width:560px;margin:0 auto}}
+@media(max-width:600px){.hv .f3{left:auto;right:0}.hv .f1{top:6cqw}}
+html,body{overflow-x:clip}
+
+/* ---------- Section « En action » ---------- */
+.showroom{position:relative;overflow:hidden;background:var(--indigo-deep);color:#fff;padding:96px 0 0}
+.showroom .weave{opacity:.1}
+.showroom .sec-head p{color:#B9C0DA}
+.showroom .wrap{position:relative;z-index:1}
+.show-row{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center;padding:28px 0 72px}
+.show-row.rev .show-text{order:2}
+.show-num{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:15px;letter-spacing:.14em;color:var(--maize)}
+.show-text h3{margin-top:10px;font-size:clamp(28px,3.4vw,40px);font-weight:780;letter-spacing:-.02em;line-height:1.08}
+.show-text p{margin-top:14px;color:#C7CDE2;font-size:16px;max-width:46ch}
+.mini{list-style:none;margin-top:20px;display:grid;gap:10px;font-size:15px}
+.mini li{display:flex;align-items:center;gap:12px}
+.mini svg{width:26px;height:26px;padding:5px;border-radius:99px;background:rgba(240,180,41,.16);fill:none;stroke:#F0B429;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.show-cap{display:block;margin-top:18px;font-size:12.5px;color:#8F98BD}
+.sv{position:relative;container-type:inline-size;width:100%}
+.sv-glow{position:absolute;left:50%;top:50%;width:90cqw;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;
+  background:radial-gradient(circle,rgba(240,180,41,.28) 0%,rgba(240,180,41,.06) 45%,transparent 68%)}
+.sv-glow::after{content:"";position:absolute;inset:9%;border-radius:50%;border:1px dashed rgba(240,180,41,.3);animation:spin-o 60s linear infinite}
+.sv-site{aspect-ratio:1/.72}
+.sv-site .sl-lap{left:16cqw;top:4cqw;width:82cqw}
+.sv-site .sl-ph{left:1cqw;top:18cqw;width:24cqw}
+.sv-app{aspect-ratio:1/.92}
+.sv-app .sl-back{left:54cqw;top:6cqw;width:34cqw;rotate:7deg}
+.sv-app .sl-front{left:24cqw;top:2cqw;width:38cqw;rotate:-3deg}
+.sv-app .sl-notif{left:2cqw;top:42cqw;width:50cqw}
+.sv-app .sl-notif .notif{animation-delay:1.5s}
+.store{position:absolute;padding:1.6cqw 3.2cqw;border-radius:99px;font-weight:700;font-size:max(12px,2.8cqw);white-space:nowrap;box-shadow:0 10px 26px -10px rgba(0,0,0,.6)}
+.store.s1{left:4cqw;top:74cqw;background:#F0B429;color:#141C42}
+.store.s2{left:66cqw;top:84cqw;background:#fff;color:#141C42}
+.sv-pngs{aspect-ratio:1/.7}
+.sv-pngs .sl-lap{left:1cqw;top:8cqw;width:80cqw}
+.sv-pngs .sl-ph{left:75cqw;top:15cqw;width:23cqw}
+.live{position:absolute;left:3cqw;top:0;z-index:3;display:inline-flex;align-items:center;gap:1.4cqw;background:#F0B429;color:#141C42;font-weight:800;font-size:max(12px,2.6cqw);padding:1.4cqw 3cqw;border-radius:99px}
+.live::before{content:"";width:1.6cqw;height:1.6cqw;min-width:8px;min-height:8px;border-radius:50%;background:#1FA855;box-shadow:0 0 0 0 rgba(31,168,85,.6);animation:live 1.8s ease-out infinite}
+@keyframes live{to{box-shadow:0 0 0 2.4cqw rgba(31,168,85,0)}}
+/* entrée au défilement */
+.sv .slot,.sv .store,.sv .live{opacity:0;translate:0 6cqw;transition:opacity .9s cubic-bezier(.2,.7,.2,1),translate .9s cubic-bezier(.2,.7,.2,1)}
+.sv.seen .slot,.sv.seen .store,.sv.seen .live{opacity:1;translate:0 0}
+.sv.seen .slot:nth-of-type(3){transition-delay:.15s}
+.sv.seen .slot:nth-of-type(4){transition-delay:.3s}
+.sv.seen .store,.sv.seen .live{transition-delay:.45s}
+.sv-site .sl-ph,.sv-pngs .sl-ph{translate:-8cqw 0}
+.sv-site.seen .sl-ph,.sv-pngs.seen .sl-ph{translate:0 0}
+@media(max-width:900px){.show-row{grid-template-columns:1fr;gap:30px;padding:20px 0 64px}.show-row.rev .show-text{order:0}}
+.showroom .kente{margin-top:8px}
 </style>
 <script>document.documentElement.className+=" js";</script>
 </head>
@@ -399,10 +560,13 @@ header:hover #spot{opacity:1}
   </svg>
 </div>
 
+<a class="promo-bar" href="/offre"><b>Offre de fin d'année</b> · Site dès 150 000 FCFA, appli Android + iPhone 500 000 FCFA, jusqu'au 31 décembre · <span>Voir l'offre</span></a>
+
 <nav>
   <div class="wrap nav-inner">
     <a class="logo" href="#" style="display:inline-flex;align-items:center;gap:10px"><svg width="26" height="26" viewBox="0 0 128 128" aria-hidden="true" style="flex-shrink:0"><line x1="20" y1="20" x2="108" y2="20" stroke="#212E63" stroke-width="9" stroke-linecap="round" opacity=".4"/><rect x="26" y="30" width="14" height="72" rx="7" fill="#212E63"/><rect x="49" y="30" width="14" height="50" rx="7" fill="#212E63"/><rect x="72" y="30" width="14" height="82" rx="7" fill="#212E63"/><rect x="95" y="30" width="14" height="38" rx="7" fill="#F0B429"/><circle cx="56" cy="94" r="5" fill="#F0B429"/></svg><span><span>IVINDO</span> <em>STUDIO</em></span></a>
     <ul class="nav-links">
+      <li><a href="#en-action">En action</a></li>
       <li><a href="#offres">Offres &amp; tarifs</a></li>
       <li><a href="#portfolio">Réalisations</a></li>
       <li><a href="#process">Méthode</a></li>
@@ -414,6 +578,7 @@ header:hover #spot{opacity:1}
 
 <header>
   <div class="weave" aria-hidden="true"></div>
+  <svg class="circuit" viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="none" stroke="rgba(255,255,255,.07)" stroke-width="1.5"><path d="M-20 120 H210 L250 160 H430 L460 130 H620"/><path d="M-20 560 H120 L170 510 H330 L370 550 H520"/><path d="M1460 90 H1250 L1210 130 H1060"/><path d="M1460 610 H1300 L1260 570 H1120 L1090 600 H980"/><path d="M560 -20 V60 L600 100 V170"/><path d="M880 720 V640 L840 600 V540"/><path d="M1340 -20 V140 L1300 180 V260"/><path d="M70 720 V650 L110 610 V560"/></g><g fill="none" stroke="#F0B429" stroke-width="2" stroke-linecap="round"><path class="pulse" style="animation-delay:0.00s" pathLength="1000" d="M-20 120 H210 L250 160 H430 L460 130 H620"/><path class="pulse" style="animation-delay:-1.37s" pathLength="1000" d="M-20 560 H120 L170 510 H330 L370 550 H520"/><path class="pulse" style="animation-delay:-2.74s" pathLength="1000" d="M1460 90 H1250 L1210 130 H1060"/><path class="pulse" style="animation-delay:-4.11s" pathLength="1000" d="M1460 610 H1300 L1260 570 H1120 L1090 600 H980"/><path class="pulse" style="animation-delay:-5.48s" pathLength="1000" d="M560 -20 V60 L600 100 V170"/><path class="pulse" style="animation-delay:-6.85s" pathLength="1000" d="M880 720 V640 L840 600 V540"/><path class="pulse" style="animation-delay:-8.22s" pathLength="1000" d="M1340 -20 V140 L1300 180 V260"/><path class="pulse" style="animation-delay:-9.59s" pathLength="1000" d="M70 720 V650 L110 610 V560"/></g><g fill="#141C42" stroke="rgba(240,180,41,.6)" stroke-width="1.5"><circle cx="620" cy="130" r="4.5"/><circle cx="520" cy="550" r="4.5"/><circle cx="1060" cy="130" r="4.5"/><circle cx="980" cy="600" r="4.5"/><circle cx="600" cy="170" r="4.5"/><circle cx="840" cy="540" r="4.5"/><circle cx="1300" cy="260" r="4.5"/><circle cx="110" cy="560" r="4.5"/></g></svg>
   <div class="wrap hero">
     <div>
       <span class="eyebrow" style="color:var(--maize)">Création de sites web & plateformes — Libreville &amp; Afrique</span>
@@ -423,13 +588,27 @@ header:hover #spot{opacity:1}
         <a class="btn btn-maize" href="#offres">Voir les offres</a>
         <a class="btn btn-ghost" href="#portfolio">Voir nos réalisations</a>
       </div>
+      <div class="hero-stats">
+        <div class="stat"><b>7–10 jours</b><small>pour un site vitrine complet</small></div>
+        <div class="stat"><b>100% mobile</b><small>pensé d'abord pour le smartphone</small></div>
+        <div class="stat"><b>WhatsApp</b><small>contact direct sur chaque page</small></div>
+      </div>
     </div>
-    <div class="hero-stats">
-      <div class="stat"><b>7–10 jours</b><small>de délai moyen de livraison pour un site vitrine complet</small></div>
-      <div class="stat"><b>100% mobile</b><small>conçu d'abord pour smartphone — là où sont vos clients</small></div>
-      <div class="stat"><b>WhatsApp</b><small>bouton de contact direct intégré sur chaque page</small></div>
+    <div class="hv play" id="hv" aria-hidden="true">
+      <div class="sun"></div>
+      <svg class="orbits" viewBox="-300 -300 600 600" aria-hidden="true"><g class="o o-kente" fill="none" stroke-width="7" stroke-linecap="butt" opacity=".55"><path d="M236.0 0.0A236 236 0 0 1 235.2 18.9" stroke="#F0B429"/><path d="M234.7 24.7A236 236 0 0 1 232.0 43.4" stroke="#0F6E68"/><path d="M230.8 49.1A236 236 0 0 1 226.2 67.4" stroke="#F0B429"/><path d="M224.4 72.9A236 236 0 0 1 217.9 90.7" stroke="#E8590C"/><path d="M215.6 96.0A236 236 0 0 1 207.2 113.0" stroke="#FFFFFF"/><path d="M204.4 118.0A236 236 0 0 1 194.3 134.0" stroke="#F0B429"/><path d="M190.9 138.7A236 236 0 0 1 179.2 153.6" stroke="#0F6E68"/><path d="M175.4 157.9A236 236 0 0 1 162.2 171.5" stroke="#E8590C"/><path d="M157.9 175.4A236 236 0 0 1 143.3 187.5" stroke="#F0B429"/><path d="M138.7 190.9A236 236 0 0 1 123.0 201.4" stroke="#0F6E68"/><path d="M118.0 204.4A236 236 0 0 1 101.2 213.2" stroke="#F0B429"/><path d="M96.0 215.6A236 236 0 0 1 78.4 222.6" stroke="#E8590C"/><path d="M72.9 224.4A236 236 0 0 1 54.7 229.6" stroke="#FFFFFF"/><path d="M49.1 230.8A236 236 0 0 1 30.4 234.0" stroke="#F0B429"/><path d="M24.7 234.7A236 236 0 0 1 5.8 235.9" stroke="#0F6E68"/><path d="M0.0 236.0A236 236 0 0 1 -18.9 235.2" stroke="#E8590C"/><path d="M-24.7 234.7A236 236 0 0 1 -43.4 232.0" stroke="#F0B429"/><path d="M-49.1 230.8A236 236 0 0 1 -67.4 226.2" stroke="#0F6E68"/><path d="M-72.9 224.4A236 236 0 0 1 -90.7 217.9" stroke="#F0B429"/><path d="M-96.0 215.6A236 236 0 0 1 -113.0 207.2" stroke="#E8590C"/><path d="M-118.0 204.4A236 236 0 0 1 -134.0 194.3" stroke="#FFFFFF"/><path d="M-138.7 190.9A236 236 0 0 1 -153.6 179.2" stroke="#F0B429"/><path d="M-157.9 175.4A236 236 0 0 1 -171.5 162.2" stroke="#0F6E68"/><path d="M-175.4 157.9A236 236 0 0 1 -187.5 143.3" stroke="#E8590C"/><path d="M-190.9 138.7A236 236 0 0 1 -201.4 123.0" stroke="#F0B429"/><path d="M-204.4 118.0A236 236 0 0 1 -213.2 101.2" stroke="#0F6E68"/><path d="M-215.6 96.0A236 236 0 0 1 -222.6 78.4" stroke="#F0B429"/><path d="M-224.4 72.9A236 236 0 0 1 -229.6 54.7" stroke="#E8590C"/><path d="M-230.8 49.1A236 236 0 0 1 -234.0 30.4" stroke="#FFFFFF"/><path d="M-234.7 24.7A236 236 0 0 1 -235.9 5.8" stroke="#F0B429"/><path d="M-236.0 0.0A236 236 0 0 1 -235.2 -18.9" stroke="#0F6E68"/><path d="M-234.7 -24.7A236 236 0 0 1 -232.0 -43.4" stroke="#E8590C"/><path d="M-230.8 -49.1A236 236 0 0 1 -226.2 -67.4" stroke="#F0B429"/><path d="M-224.4 -72.9A236 236 0 0 1 -217.9 -90.7" stroke="#0F6E68"/><path d="M-215.6 -96.0A236 236 0 0 1 -207.2 -113.0" stroke="#F0B429"/><path d="M-204.4 -118.0A236 236 0 0 1 -194.3 -134.0" stroke="#E8590C"/><path d="M-190.9 -138.7A236 236 0 0 1 -179.2 -153.6" stroke="#FFFFFF"/><path d="M-175.4 -157.9A236 236 0 0 1 -162.2 -171.5" stroke="#F0B429"/><path d="M-157.9 -175.4A236 236 0 0 1 -143.3 -187.5" stroke="#0F6E68"/><path d="M-138.7 -190.9A236 236 0 0 1 -123.0 -201.4" stroke="#E8590C"/><path d="M-118.0 -204.4A236 236 0 0 1 -101.2 -213.2" stroke="#F0B429"/><path d="M-96.0 -215.6A236 236 0 0 1 -78.4 -222.6" stroke="#0F6E68"/><path d="M-72.9 -224.4A236 236 0 0 1 -54.7 -229.6" stroke="#F0B429"/><path d="M-49.1 -230.8A236 236 0 0 1 -30.4 -234.0" stroke="#E8590C"/><path d="M-24.7 -234.7A236 236 0 0 1 -5.8 -235.9" stroke="#FFFFFF"/><path d="M-0.0 -236.0A236 236 0 0 1 18.9 -235.2" stroke="#F0B429"/><path d="M24.7 -234.7A236 236 0 0 1 43.4 -232.0" stroke="#0F6E68"/><path d="M49.1 -230.8A236 236 0 0 1 67.4 -226.2" stroke="#E8590C"/><path d="M72.9 -224.4A236 236 0 0 1 90.7 -217.9" stroke="#F0B429"/><path d="M96.0 -215.6A236 236 0 0 1 113.0 -207.2" stroke="#0F6E68"/><path d="M118.0 -204.4A236 236 0 0 1 134.0 -194.3" stroke="#F0B429"/><path d="M138.7 -190.9A236 236 0 0 1 153.6 -179.2" stroke="#E8590C"/><path d="M157.9 -175.4A236 236 0 0 1 171.5 -162.2" stroke="#FFFFFF"/><path d="M175.4 -157.9A236 236 0 0 1 187.5 -143.3" stroke="#F0B429"/><path d="M190.9 -138.7A236 236 0 0 1 201.4 -123.0" stroke="#0F6E68"/><path d="M204.4 -118.0A236 236 0 0 1 213.2 -101.2" stroke="#E8590C"/><path d="M215.6 -96.0A236 236 0 0 1 222.6 -78.4" stroke="#F0B429"/><path d="M224.4 -72.9A236 236 0 0 1 229.6 -54.7" stroke="#0F6E68"/><path d="M230.8 -49.1A236 236 0 0 1 234.0 -30.4" stroke="#F0B429"/><path d="M234.7 -24.7A236 236 0 0 1 235.9 -5.8" stroke="#E8590C"/></g><g class="o o-tri" fill="rgba(255,255,255,.22)"><polygon points="-5,-274 5,-274 0,-262" transform="rotate(0.0)"/><polygon points="-5,-262 5,-262 0,-274" transform="rotate(7.5)"/><polygon points="-5,-274 5,-274 0,-262" transform="rotate(15.0)"/><polygon points="-5,-262 5,-262 0,-274" transform="rotate(22.5)"/><polygon points="-5,-274 5,-274 0,-262" transform="rotate(30.0)"/><polygon points="-5,-262 5,-262 0,-274" transform="rotate(37.5)"/><polygon points="-5,-274 5,-274 0,-262" transform="rotate(45.0)"/><polygon points="-5,-262 5,-262 0,-274" transform="rotate(52.5)"/><polygon points="-5,-274 5,-274 0,-262" transform="rotate(60.0)"/><polygon points="-5,-262 5,-262 0,-274" transform="rotate(67.5)"/><polygon points="-5,-274 5,-274 0,-262" transform="rotate(75.0)"/><polygon points="-5,-262 5,-262 0,-274" transform="rotate(82.5)"/><polygon points="-5,-274 5,-274 0,-262" transform="rotate(90.0)"/><polygon points="-5,-262 5,-262 0,-274" transform="rotate(97.5)"/><polygon points="-5,-274 5,-274 0,-262" transform="rotate(105.0)"/><polygon points="-5,-262 5,-262 0,-274" transform="rotate(112.5)"/><polygon points="-5,-274 5,-274 0,-262" transform="rotate(120.0)"/><polygon points="-5,-262 5,-262 0,-274" transform="rotate(127.5)"/><polygon points="-5,-274 5,-274 0,-262" transform="rotate(135.0)"/><polygon points="-5,-262 5,-262 0,-274" transform="rotate(142.5)"/><polygon points="-5,-274 5,-274 0,-262" transform="rotate(150.0)"/><polygon points="-5,-262 5,-262 0,-274" transform="rotate(157.5)"/><polygon points="-5,-274 5,-274 0,-262" transform="rotate(165.0)"/><polygon points="-5,-262 5,-262 0,-274" transform="rotate(172.5)"/><polygon points="-5,-274 5,-274 0,-262" transform="rotate(180.0)"/><polygon points="-5,-262 5,-262 0,-274" transform="rotate(187.5)"/><polygon points="-5,-274 5,-274 0,-262" transform="rotate(195.0)"/><polygon points="-5,-262 5,-262 0,-274" transform="rotate(202.5)"/><polygon points="-5,-274 5,-274 0,-262" transform="rotate(210.0)"/><polygon points="-5,-262 5,-262 0,-274" transform="rotate(217.5)"/><polygon points="-5,-274 5,-274 0,-262" transform="rotate(225.0)"/><polygon points="-5,-262 5,-262 0,-274" transform="rotate(232.5)"/><polygon points="-5,-274 5,-274 0,-262" transform="rotate(240.0)"/><polygon points="-5,-262 5,-262 0,-274" transform="rotate(247.5)"/><polygon points="-5,-274 5,-274 0,-262" transform="rotate(255.0)"/><polygon points="-5,-262 5,-262 0,-274" transform="rotate(262.5)"/><polygon points="-5,-274 5,-274 0,-262" transform="rotate(270.0)"/><polygon points="-5,-262 5,-262 0,-274" transform="rotate(277.5)"/><polygon points="-5,-274 5,-274 0,-262" transform="rotate(285.0)"/><polygon points="-5,-262 5,-262 0,-274" transform="rotate(292.5)"/><polygon points="-5,-274 5,-274 0,-262" transform="rotate(300.0)"/><polygon points="-5,-262 5,-262 0,-274" transform="rotate(307.5)"/><polygon points="-5,-274 5,-274 0,-262" transform="rotate(315.0)"/><polygon points="-5,-262 5,-262 0,-274" transform="rotate(322.5)"/><polygon points="-5,-274 5,-274 0,-262" transform="rotate(330.0)"/><polygon points="-5,-262 5,-262 0,-274" transform="rotate(337.5)"/><polygon points="-5,-274 5,-274 0,-262" transform="rotate(345.0)"/><polygon points="-5,-262 5,-262 0,-274" transform="rotate(352.5)"/></g><g class="o o-dots"><circle r="196" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="1.4" stroke-dasharray="1.5 9" stroke-linecap="round"/><circle cx="196" cy="0" r="6" fill="#F0B429"/><circle cx="-139" cy="139" r="4" fill="#FFFFFF"/><circle cx="-60" cy="-186" r="3.5" fill="#F0B429"/></g><g class="o o-dia"><circle r="292" fill="none" stroke="rgba(240,180,41,.28)" stroke-width="1"/><g fill="rgba(240,180,41,.55)"><rect x="-6" y="-298" width="12" height="12" transform="rotate(0) rotate(45 0 -292)" /><rect x="-6" y="-298" width="12" height="12" transform="rotate(45) rotate(45 0 -292)" /><rect x="-6" y="-298" width="12" height="12" transform="rotate(90) rotate(45 0 -292)" /><rect x="-6" y="-298" width="12" height="12" transform="rotate(135) rotate(45 0 -292)" /><rect x="-6" y="-298" width="12" height="12" transform="rotate(180) rotate(45 0 -292)" /><rect x="-6" y="-298" width="12" height="12" transform="rotate(225) rotate(45 0 -292)" /><rect x="-6" y="-298" width="12" height="12" transform="rotate(270) rotate(45 0 -292)" /><rect x="-6" y="-298" width="12" height="12" transform="rotate(315) rotate(45 0 -292)" /></g></g></svg>
+      <div class="scene">
+        <div class="slot s-lap"><div class="bob b1"><div class="dev laptop"><div class="lid"><div class="screen"><img class="scr scr-site" src="assets/ecrans/villa-lana-defile-ordi.webp" alt="" decoding="async"></div></div><div class="base"></div></div></div></div>
+        <div class="slot s-ph2"><div class="bob b2"><div class="dev phone inset"><div class="screen"><img class="fill" src="assets/ecrans/pngs-espace-parents.webp" alt="" decoding="async"></div><i class="island"></i></div></div></div>
+        <div class="slot s-ph1"><div class="bob b3"><div class="dev phone "><div class="screen"><img class="fill" src="assets/ecrans/appli-accueil.webp" alt="" decoding="async"><img class="fill swap" src="assets/ecrans/appli-produit.webp" alt="" decoding="async"><span class="tap"></span></div><i class="island"></i></div></div></div>
+        <div class="slot s-notif"><div class="notif"><span class="n-ic"></span><span class="n-tx"><span class="n-hd"><b>Mayumba Wax</b><span>maintenant</span></span><span>Nouvelle collection des fêtes disponible !</span></span></div></div>
+        <span class="chip-f f1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>WhatsApp intégré</span>
+        <span class="chip-f f2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Airtel · Moov Money</span>
+        <span class="chip-f f3"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Play Store · App Store</span>
+      </div>
     </div>
   </div>
+  <div class="kente" aria-hidden="true"></div>
 </header>
 
 <div class="marquee" aria-hidden="true">
@@ -463,6 +642,66 @@ header:hover #spot{opacity:1}
       </div>
     </div>
   </div>
+</section>
+
+<section id="en-action" class="showroom">
+  <div class="weave" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" style="color:var(--maize)">En action</span>
+      <h2>Sites, applis, plateformes : voyez-les tourner.</h2>
+      <p>Des interfaces pensées pour l'Afrique d'aujourd'hui : rapides sur mobile, connectées à WhatsApp et au mobile money.</p>
+    </div>
+
+    <div class="show-row">
+      <div class="show-text">
+        <span class="show-num">01</span>
+        <h3>Sites web</h3>
+        <p>Votre vitrine ouverte jour et nuit. Un site rapide et élégant, pensé d'abord pour le téléphone, avec un bouton WhatsApp toujours à portée de pouce.</p>
+        <ul class="mini"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Design sur mesure à vos couleurs</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>WhatsApp, Google Maps et horaires</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Nom de domaine et hébergement</li></ul>
+        <small class="show-cap">Exemple : site d'une maison d'hôtes au Cap Estérias (démo)</small>
+      </div>
+      <div class="sv sv-site" aria-hidden="true">
+        <div class="sv-glow"></div>
+        <div class="slot sl-lap"><div class="dev laptop"><div class="lid"><div class="screen"><img class="scr scr-site" src="assets/ecrans/villa-lana-defile-ordi.webp" alt="" loading="lazy" decoding="async"></div></div><div class="base"></div></div></div>
+        <div class="slot sl-ph"><div class="dev phone "><div class="screen"><img class="scr scr-mob" src="assets/ecrans/villa-lana-defile-mobile.webp" alt="" loading="lazy" decoding="async"></div><i class="island"></i></div></div>
+      </div>
+    </div>
+
+    <div class="show-row rev">
+      <div class="show-text">
+        <span class="show-num">02</span>
+        <h3>Applications mobiles</h3>
+        <p>Dans la poche de vos clients. Une appli Android et iPhone à votre nom : votre catalogue, des notifications pour annoncer vos nouveautés, la commande et l'appel en un geste.</p>
+        <ul class="mini"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Publiée sur Play Store et App Store</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Notifications envoyées à vos clients</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Commande par WhatsApp ou appel direct</li></ul>
+        <small class="show-cap">Exemple : appli catalogue d'une boutique de pagnes (démo)</small>
+      </div>
+      <div class="sv sv-app" aria-hidden="true">
+        <div class="sv-glow"></div>
+        <div class="slot sl-back"><div class="dev phone "><div class="screen"><img class="fill" src="assets/ecrans/appli-produit.webp" alt="" loading="lazy" decoding="async"></div><i class="island"></i></div></div>
+        <div class="slot sl-front"><div class="dev phone "><div class="screen"><img class="fill" src="assets/ecrans/appli-accueil.webp" alt="" loading="lazy" decoding="async"><img class="fill swap" src="assets/ecrans/appli-produit.webp" alt="" loading="lazy" decoding="async"><span class="tap"></span></div><i class="island"></i></div></div>
+        <div class="slot sl-notif"><div class="notif"><span class="n-ic"></span><span class="n-tx"><span class="n-hd"><b>Mayumba Wax</b><span>maintenant</span></span><span>Nouvelle collection des fêtes disponible !</span></span></div></div>
+        <span class="store s1">Play Store</span><span class="store s2">App Store</span>
+      </div>
+    </div>
+
+    <div class="show-row">
+      <div class="show-text">
+        <span class="show-num">03</span>
+        <h3>Plateformes de gestion</h3>
+        <p>Votre activité pilotée en temps réel : tableaux de bord, caisse, comptes, espaces clients. Notre plateforme de gestion scolaire est déjà en service dans un établissement privé au Gabon.</p>
+        <ul class="mini"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Tableau de bord de direction</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Paiements Airtel Money et Moov Money</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Espace parents sur téléphone</li></ul>
+        <a class="btn btn-maize" href="#" data-gallery="pngs" style="margin-top:22px">Voir la plateforme en images</a>
+      </div>
+      <div class="sv sv-pngs" aria-hidden="true">
+        <div class="sv-glow"></div>
+        <span class="live">Déjà en service au Gabon</span>
+        <div class="slot sl-lap"><div class="dev laptop"><div class="lid"><div class="screen"><img class="fill" src="assets/ecrans/pngs-tableau-de-bord.webp" alt="" loading="lazy" decoding="async"></div></div><div class="base"></div></div></div>
+        <div class="slot sl-ph"><div class="dev phone inset"><div class="screen"><img class="fill" src="assets/ecrans/pngs-espace-parents.webp" alt="" loading="lazy" decoding="async"></div><i class="island"></i></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="kente" aria-hidden="true"></div>
 </section>
 
 <section id="offres">
@@ -693,7 +932,7 @@ header:hover #spot{opacity:1}
   /* Révélation au défilement, avec décalage en cascade par groupe */
   var groups=[
     '.sec-head','.args .arg','.plans .plan','.works .work',
-    '.steps .step','#contact .card','.maint','.note-secteurs','.quartiers .q'
+    '.steps .step','#contact .card','.maint','.note-secteurs','.quartiers .q','.show-text'
   ];
   var targets=[];
   groups.forEach(function(sel){
@@ -727,6 +966,30 @@ header:hover #spot{opacity:1}
       el.addEventListener('pointerleave',function(){el.style.transform='';});
     });
   }
+
+  /* Scène 3D du hero : suit le pointeur */
+  var hv=document.getElementById('hv');
+  if(hv&&!reduced&&window.matchMedia('(pointer:fine)').matches&&header){
+    header.addEventListener('pointermove',function(e){
+      var r=hv.getBoundingClientRect();
+      var x=(e.clientX-(r.left+r.width/2))/window.innerWidth;
+      var y=(e.clientY-(r.top+r.height/2))/window.innerHeight;
+      hv.style.setProperty('--mx',Math.max(-.6,Math.min(.6,x*1.6)).toFixed(3));
+      hv.style.setProperty('--my',Math.max(-.6,Math.min(.6,y*1.6)).toFixed(3));
+    });
+    header.addEventListener('pointerleave',function(){hv.style.setProperty('--mx',0);hv.style.setProperty('--my',0);});
+  }
+  /* Écrans animés : ne tournent que lorsqu'ils sont visibles */
+  var screensEls=document.querySelectorAll('.hv,.sv');
+  if('IntersectionObserver' in window){
+    var io2=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        en.target.classList.toggle('play',en.isIntersecting);
+        if(en.isIntersecting)en.target.classList.add('seen');
+      });
+    },{threshold:.2});
+    screensEls.forEach(function(el){io2.observe(el);});
+  }else{screensEls.forEach(function(el){el.classList.add('play','seen');});}
 })();
 </script>
 <script>
