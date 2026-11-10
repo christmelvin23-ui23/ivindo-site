@@ -1,0 +1,12 @@
+{
+  "name": "Ivindo Studio",
+  "short_name": "Ivindo",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "theme_color": "#141C42",
+  "background_color": "#141C42",
+  "display": "browser",
+  "start_url": "/"
+}
